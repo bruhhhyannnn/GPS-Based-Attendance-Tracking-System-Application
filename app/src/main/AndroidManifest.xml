@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Capstone"
         tools:targetApi="31">
         <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginPasswordActivity"
             android:exported="false" />
         <activity

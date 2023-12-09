@@ -28,8 +28,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="Enter your email"
-            android:textStyle="bold"
-            android:textSize="18dp"/>
+            android:textSize="14dp"/>
     </LinearLayout>
 
     <!-- BODY -->

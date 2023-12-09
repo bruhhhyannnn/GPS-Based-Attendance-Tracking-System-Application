@@ -16,15 +16,11 @@ class LoginPasswordActivity : AppCompatActivity() {
         binding = ActivityLoginPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        val email = if (intent != null)
-            intent.extras?.getString("email_input") ?: "default_email"
-        else
-            "null_value"
-        UiUtil.showToast(applicationContext, email)
-
         binding.passwordContinueButton.setOnClickListener {
             login()
+        }
+        binding.goToForgotPassword.setOnClickListener {
+            startActivity(Intent(this, ChangePasswordActivity::class.java))
         }
     }
 

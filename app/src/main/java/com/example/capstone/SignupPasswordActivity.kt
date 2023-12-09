@@ -21,10 +21,10 @@ class SignupPasswordActivity : AppCompatActivity() {
 
         binding.passwordContinueButton.setOnClickListener {
 //              remove this later in order to put data
-            startActivity(Intent(this, MainActivity::class.java))
+//            startActivity(Intent(this, MainActivity::class.java))
 
-//            enable this if want to put data na
-//            signup()
+//            ENABLE THIS IF YOU WANT TO ACTIVATE THE REAL LOGIN DATA
+            signup()
         }
     }
 
@@ -55,7 +55,7 @@ class SignupPasswordActivity : AppCompatActivity() {
             return
         }
 
-        // if email and pass is good, fire it up to firebase's ass
+        // IF EMAIL AND PASS IS GOOD, FIRE IT UP TO FIREBASE's ASS
         signupWithFirebase(email, password)
     }
 
@@ -74,7 +74,7 @@ class SignupPasswordActivity : AppCompatActivity() {
             email, password
         ).addOnSuccessListener {
             it.user?.let { user->
-//                add more data info here (natitira: title, profile pic, circle)
+//                ADD MORE DATA INFO HERE (NATITIRA: TITLE, PROFILE PIC, CIRCLE)
                 val userModel = UserModel(user.uid, email, "", firstName, lastName)
 
                 Firebase.firestore.collection("users")
