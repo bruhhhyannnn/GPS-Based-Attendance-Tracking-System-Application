@@ -3,8 +3,13 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.capstone.databinding.ActivitySignupBinding
+import android.view.View
 import com.example.capstone.databinding.ActivitySignupPasswordBinding
+import com.example.capstone.model.UserModel
+import com.example.capstone.util.UiUtil
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.firestore
 
 class SignupPasswordActivity : AppCompatActivity() {
 
@@ -15,7 +20,73 @@ class SignupPasswordActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.passwordContinueButton.setOnClickListener {
-            startActivity(Intent(this, SignupPasswordActivity::class.java))
+//              remove this later in order to put data
+            startActivity(Intent(this, MainActivity::class.java))
+
+//            signup()
+        }
+    }
+
+    fun setInProgress(inProgress : Boolean) {
+        if (inProgress) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.passwordContinueButton.visibility = View.GONE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.passwordContinueButton.visibility = View.VISIBLE
+        }
+    }
+    fun signup() {
+        val email = if (intent != null)
+        intent.extras?.getString("email_input") ?: "default_email"
+        else
+        "null_value"
+        val password = binding.passwordInput.text.toString()
+        val confirmPassword = binding.confirmPasswordInput.text.toString()
+
+        if (password.length < 8) {
+            binding.passwordInput.setError("Minimum of 8 characters")
+            return
+        }
+        if (password != confirmPassword) {
+            binding.confirmPasswordInput.setError("Password not matched")
+            return
+        }
+
+        // if email and pass is good, fire it up to firebase's ass
+        signupWithFirebase(email, password)
+    }
+
+    fun signupWithFirebase(email : String, password : String) {
+        val firstName = if (intent != null)
+            intent.extras?.getString("first_name") ?: "default_email"
+        else
+            "null_value"
+        val lastName = if (intent != null)
+            intent.extras?.getString("last_name") ?: "default_email"
+        else
+            "null_value"
+
+        setInProgress(true)
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(
+            email, password
+        ).addOnSuccessListener {
+            it.user?.let { user->
+//                add more data info here (natitira: title, profile pic, circle)
+                val userModel = UserModel(user.uid, email, "", firstName, lastName)
+
+                Firebase.firestore.collection("users")
+                    .document(user.uid)
+                    .set(userModel).addOnSuccessListener {
+                        UiUtil.showToast(applicationContext, "Account created successfully")
+                        setInProgress(false)
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
+                    }
+            }
+        }.addOnFailureListener {
+            UiUtil.showToast(applicationContext, it.localizedMessage?: "Something went wrong")
+            setInProgress(false)
         }
     }
 }

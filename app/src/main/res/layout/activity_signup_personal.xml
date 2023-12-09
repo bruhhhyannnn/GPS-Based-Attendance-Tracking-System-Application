@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
     android:layout_margin="16dp"
-    tools:context=".SignupPasswordActivity">
+    tools:context=".SignupPersonalActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,15 +19,16 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_margin="40dp"
-            android:text="Create your password"
+            android:text="What's your name?"
             android:textStyle="bold"
             android:textSize="18dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+
         android:padding="12dp">
 
         <EditText
@@ -35,71 +36,55 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="Password"
-            android:inputType="textPassword"
+            android:hint="Title"
+            android:inputType="text"
             android:padding="12dp"
             android:textColor="@color/light_gray"
             android:textColorHint="@color/light_gray"
             android:textSize="14dp"
-            android:id="@+id/password_input"/>
+            android:id="@+id/title_input"/>
         <EditText
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
+            android:hint="First Name"
+            android:inputType="textPersonName"
             android:padding="12dp"
             android:textColor="@color/light_gray"
             android:textColorHint="@color/light_gray"
-            android:layout_marginTop="10dp"
             android:textSize="14dp"
-            android:id="@+id/confirm_password_input"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom">
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="bottom"
-                android:textColor="@color/light_gray"
-                android:text="✖ At least 8 characters"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="bottom"
-                android:textColor="@color/light_gray"
-                android:text="✖ Letters, numbers, and special characters"/>
-
-        </LinearLayout>
-
+            android:layout_marginTop="12dp"
+            android:id="@+id/first_name_input"/>
+        <EditText
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/input_box"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textColor="@color/light_gray"
+            android:textColorHint="@color/light_gray"
+            android:textSize="14dp"
+            android:id="@+id/last_name_input"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:gravity="bottom|center"
         android:padding="5dp">
 
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Continue"
             android:textSize="16dp"
             android:textStyle="bold"
-            android:id="@+id/password_continue_button"/>
-        <ProgressBar
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:id="@+id/progress_bar"/>
+            android:padding="10dp"
+            android:elevation="4dp"
+            android:id="@+id/personal_continue_button"/>
     </LinearLayout>
-
 </LinearLayout>

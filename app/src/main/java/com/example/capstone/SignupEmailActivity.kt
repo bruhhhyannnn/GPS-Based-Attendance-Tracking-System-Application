@@ -3,7 +3,10 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
+import android.widget.Toast
 import com.example.capstone.databinding.ActivitySignupBinding
+import com.example.capstone.util.UiUtil
 
 class SignupEmailActivity : AppCompatActivity() {
 
@@ -15,9 +18,30 @@ class SignupEmailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.emailContinueButton.setOnClickListener {
-            startActivity(Intent(this, SignupPasswordActivity::class.java))
+            signup()
         }
 
 
+    }
+    fun signup() {
+        val firstName = if (intent != null)
+            intent.extras?.getString("first_name") ?: "default_email"
+        else
+            "null_value"
+        val lastName = if (intent != null)
+            intent.extras?.getString("last_name") ?: "default_email"
+        else
+            "null_value"
+        val email = binding.emailInput.text.toString()
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.emailInput.setError("Email not valid")
+            return
+        }
+        val intent = Intent(this, SignupPasswordActivity::class.java)
+        intent.putExtra("email_input", email)
+        intent.putExtra("first_name", firstName)
+        intent.putExtra("last_name", lastName)
+        startActivity(intent)
     }
 }
