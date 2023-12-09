@@ -23,6 +23,7 @@ class SignupPasswordActivity : AppCompatActivity() {
 //              remove this later in order to put data
             startActivity(Intent(this, MainActivity::class.java))
 
+//            enable this if want to put data na
 //            signup()
         }
     }
@@ -36,11 +37,12 @@ class SignupPasswordActivity : AppCompatActivity() {
             binding.passwordContinueButton.visibility = View.VISIBLE
         }
     }
+
     fun signup() {
         val email = if (intent != null)
         intent.extras?.getString("email_input") ?: "default_email"
         else
-        "null_value"
+            "null_value"
         val password = binding.passwordInput.text.toString()
         val confirmPassword = binding.confirmPasswordInput.text.toString()
 
