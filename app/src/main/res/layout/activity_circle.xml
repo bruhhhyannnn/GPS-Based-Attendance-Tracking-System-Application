@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    tools:context=".CircleActivity">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Joining a Circle? Enter your invite code"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
+
+    </LinearLayout>
+
+    <!-- BODY -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="12dp">
+
+        <EditText
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/input_box"
+            android:hint="Invite code"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="@color/light_gray"
+            android:textColorHint="@color/light_gray"
+            android:textSize="14dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/invite_code_input"/>
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:text="Tip: You may need to ask the Circle creator for the code."
+            android:textColor="@color/light_gray"
+            android:layout_margin="20dp"
+            android:textSize="12dp"/>
+        <Button
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:id="@+id/submit_button"/>
+
+<!--     DIVIDER   -->
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="-------------------- Or --------------------"
+            android:textStyle="bold"
+            android:layout_margin="24dp"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:text="Tip: You can join or create a class later on if that’s what you prefer"
+            android:textColor="@color/light_gray"
+            android:textSize="12dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skip for now"
+            android:textColor="@color/light_blue"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:id="@+id/skip"/>
+
+    </LinearLayout>
+
+    <!-- FOOTER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:gravity="bottom|center"
+        android:orientation="vertical"
+        android:background="@color/bg_gray"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Don’t have a code?"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="14dp"/>
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="We’ll give you a code to share"
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
+        <Button
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Create a new Circle Class"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:id="@+id/create_circle_button"/>
+    </LinearLayout>
+
+</LinearLayout>

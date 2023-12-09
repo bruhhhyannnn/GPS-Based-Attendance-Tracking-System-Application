@@ -8,8 +8,9 @@
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
     android:layout_margin="16dp"
-    tools:context=".SignupPersonalActivity">
+    tools:context=".StudentCircleDetailsActivity">
 
+    <!-- HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,11 +20,12 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_margin="40dp"
-            android:text="What's your name?"
+            android:text="Enter additional details"
             android:textStyle="bold"
             android:textSize="18dp"/>
     </LinearLayout>
 
+    <!-- BODY -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,40 +38,41 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="Title"
+            android:hint="Student Number"
             android:inputType="text"
             android:padding="12dp"
             android:textColor="@color/light_gray"
             android:textColorHint="@color/light_gray"
             android:textSize="14dp"
-            android:id="@+id/title_input"/>
+            android:id="@+id/student_number_input"/>
         <EditText
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="First Name"
+            android:hint="Course"
             android:inputType="textPersonName"
             android:padding="12dp"
             android:textColor="@color/light_gray"
             android:textColorHint="@color/light_gray"
             android:textSize="14dp"
             android:layout_margin="12dp"
-            android:id="@+id/first_name_input"/>
+            android:id="@+id/course_input"/>
         <EditText
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="Last Name"
+            android:hint="Year Level and Section"
             android:inputType="textPersonName"
             android:padding="12dp"
             android:textColor="@color/light_gray"
             android:textColorHint="@color/light_gray"
             android:textSize="14dp"
-            android:id="@+id/last_name_input"/>
+            android:id="@+id/year_level_n_section_input"/>
     </LinearLayout>
 
+    <!-- FOOTER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,46 +80,6 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="By signing up you accept our "
-                android:textColor="@color/light_gray"
-                android:textSize="14dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Terms and Conditions"
-                android:textColor="@color/light_gray"
-                android:textSize="14dp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="and "
-                android:textColor="@color/light_gray"
-                android:textSize="14dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Privacy Policy"
-                android:textColor="@color/light_gray"
-                android:textSize="14dp"/>
-        </LinearLayout>
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -127,6 +90,6 @@
             android:padding="10dp"
             android:elevation="4dp"
             android:layout_margin="10dp"
-            android:id="@+id/personal_continue_button"/>
+            android:id="@+id/student_circle_details_continue_button"/>
     </LinearLayout>
 </LinearLayout>
