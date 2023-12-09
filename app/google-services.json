@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "578165183118",
+    "project_id": "gps-based-attendance-sys-7189c",
+    "storage_bucket": "gps-based-attendance-sys-7189c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578165183118:android:b0405b2b74431f4d316fdf",
+        "android_client_info": {
+          "package_name": "com.example.capstone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbtP0l6DGDazSqiA5MLQLZCCHcOACJT00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
