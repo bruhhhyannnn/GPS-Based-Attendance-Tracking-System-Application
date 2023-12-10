@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
     android:layout_margin="16dp"
-    tools:context=".WelcomeActivity">
+    tools:context=".CircleWelcomeActivity">
 
     <!-- HEADER -->
     <LinearLayout
@@ -36,7 +36,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="380dp"
             android:src="@drawable/greet"/>
     </LinearLayout>
 

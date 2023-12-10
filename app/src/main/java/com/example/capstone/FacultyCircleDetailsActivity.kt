@@ -3,16 +3,15 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.capstone.databinding.ActivityCircleFacultyDetailsBinding
-import com.example.capstone.databinding.ActivityCircleStudentDetailsBinding
+import com.example.capstone.databinding.ActivityFacultyCircleDetailsBinding
 
-class CircleFacultyDetailsActivity : AppCompatActivity() {
+class FacultyCircleDetailsActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityCircleFacultyDetailsBinding
+    lateinit var binding : ActivityFacultyCircleDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCircleFacultyDetailsBinding.inflate(layoutInflater)
+        binding = ActivityFacultyCircleDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.circleFacultyDetailsContinueButton.setOnClickListener {
@@ -33,6 +32,7 @@ class CircleFacultyDetailsActivity : AppCompatActivity() {
         }
 
 //          IF TEST CASES OKAY? GO TO ADD LOCATION FRAME
-        startActivity(Intent(this, CircleFacultyLocationActivity::class.java))
+        startActivity(Intent(this, FacultyCircleLocationActivity::class.java))
+        finish()
     }
 }

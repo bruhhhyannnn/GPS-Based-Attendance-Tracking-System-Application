@@ -1,15 +1,16 @@
 package com.example.capstone
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.capstone.databinding.ActivityCircleStudentDetailsBinding
+import com.example.capstone.databinding.ActivityStudentCircleDetailsBinding
 
-class CircleStudentDetailsActivity : AppCompatActivity() {
+class StudentCircleDetailsActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityCircleStudentDetailsBinding
+    lateinit var binding : ActivityStudentCircleDetailsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCircleStudentDetailsBinding.inflate(layoutInflater)
+        binding = ActivityStudentCircleDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.circleStudentDetailsContinueButton.setOnClickListener {
@@ -39,10 +40,10 @@ class CircleStudentDetailsActivity : AppCompatActivity() {
 
     fun addWithFirebase(studentNum : String, course : String, YRSection : String) {
 
-//        UPDATE OPERATION
+//        UPDATE OPERATION, add to the database for student, course, yr n section
 
 //          IF ADDED GO TO LOCATION PERMISSION FRAME
-//        startActivity(Intent(this, ::class.java))
-
+        startActivity(Intent(this, LocationPermissionActivity::class.java))
+        finish()
     }
 }

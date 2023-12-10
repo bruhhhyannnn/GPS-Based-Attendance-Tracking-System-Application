@@ -52,7 +52,7 @@ class SignupPasswordActivity : AppCompatActivity() {
             return
         }
         if (password != confirmPassword) {
-            binding.confirmPasswordInput.setError("Password not matched")
+            binding.confirmPasswordInput.setError("Password does not matched")
             return
         }
 
@@ -88,7 +88,7 @@ class SignupPasswordActivity : AppCompatActivity() {
                     .addOnSuccessListener {
                         UiUtil.showToast(applicationContext, "Account created successfully")
                         setInProgress(false)
-                        startActivity(Intent(this, WelcomeActivity::class.java))
+                        startActivity(Intent(this, CircleWelcomeActivity::class.java))
                         finish()
                     }
             }

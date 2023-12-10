@@ -3,14 +3,14 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.capstone.databinding.ActivityCircleFacultyLocationBinding
+import com.example.capstone.databinding.ActivityFacultyCircleLocationBinding
 
-class CircleFacultyLocationActivity : AppCompatActivity() {
+class FacultyCircleLocationActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityCircleFacultyLocationBinding
+    lateinit var binding : ActivityFacultyCircleLocationBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCircleFacultyLocationBinding.inflate(layoutInflater)
+        binding = ActivityFacultyCircleLocationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.circleFacultyLocationSaveButton.setOnClickListener {
@@ -26,6 +26,7 @@ class CircleFacultyLocationActivity : AppCompatActivity() {
         }
 
 //          IF TEST CASES OKAY? GO TO ADD TIME FRAME
-        startActivity(Intent(this, CircleFacultyTimeActivity::class.java))
+        startActivity(Intent(this, FacultyCircleTimeActivity::class.java))
+        finish()
     }
 }

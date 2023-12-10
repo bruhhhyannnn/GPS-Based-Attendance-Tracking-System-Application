@@ -3,14 +3,14 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.capstone.databinding.ActivityCircleFacultyTimeBinding
+import com.example.capstone.databinding.ActivityFacultyCircleTimeBinding
 
-class CircleFacultyTimeActivity : AppCompatActivity() {
+class FacultyCircleTimeActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityCircleFacultyTimeBinding
+    lateinit var binding : ActivityFacultyCircleTimeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCircleFacultyTimeBinding.inflate(layoutInflater)
+        binding = ActivityFacultyCircleTimeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.circleFacultyTimeContinueButton.setOnClickListener {

@@ -16,25 +16,28 @@
         android:theme="@style/Theme.Capstone"
         tools:targetApi="31">
         <activity
+            android:name=".LocationPermissionActivity"
+            android:exported="false" />
+        <activity
             android:name=".FacultyCircleCodeActivity"
             android:exported="false" />
         <activity
-            android:name=".CircleFacultyTimeActivity"
+            android:name=".FacultyCircleTimeActivity"
             android:exported="false" />
         <activity
-            android:name=".CircleFacultyLocationActivity"
+            android:name=".FacultyCircleLocationActivity"
             android:exported="false" />
         <activity
-            android:name=".CircleFacultyDetailsActivity"
+            android:name=".FacultyCircleDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".CircleStudentDetailsActivity"
+            android:name=".StudentCircleDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".CircleActivity"
             android:exported="false" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".CircleWelcomeActivity"
             android:exported="false" />
         <activity
             android:name=".ChangePasswordActivity"

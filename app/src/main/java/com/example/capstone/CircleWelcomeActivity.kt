@@ -3,15 +3,14 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.capstone.databinding.ActivityLoginEmailBinding
-import com.example.capstone.databinding.ActivityWelcomeBinding
+import com.example.capstone.databinding.ActivityCircleWelcomeBinding
 
-class WelcomeActivity : AppCompatActivity() {
+class CircleWelcomeActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityWelcomeBinding
+    lateinit var binding : ActivityCircleWelcomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        binding = ActivityCircleWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.welcomeContinueButton.setOnClickListener {

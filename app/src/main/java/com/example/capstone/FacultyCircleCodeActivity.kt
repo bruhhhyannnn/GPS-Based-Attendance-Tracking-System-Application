@@ -3,7 +3,6 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.capstone.databinding.ActivityCircleFacultyTimeBinding
 import com.example.capstone.databinding.ActivityFacultyCircleCodeBinding
 
 class FacultyCircleCodeActivity : AppCompatActivity() {
@@ -22,9 +21,9 @@ class FacultyCircleCodeActivity : AppCompatActivity() {
 
         }
 
-        binding.goToDashboard.setOnClickListener {
+        binding.goToLocationPermission.setOnClickListener {
 //            GO NOW TO MAIN ACTIVITY
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LocationPermissionActivity::class.java))
         }
     }
 }

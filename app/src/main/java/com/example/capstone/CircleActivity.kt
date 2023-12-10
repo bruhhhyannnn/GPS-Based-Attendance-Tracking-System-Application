@@ -24,7 +24,7 @@ class CircleActivity : AppCompatActivity() {
         }
 
         binding.createCircleButton.setOnClickListener {
-            startActivity(Intent(this, CircleFacultyDetailsActivity::class.java))
+            startActivity(Intent(this, FacultyCircleDetailsActivity::class.java))
         }
     }
 
@@ -40,7 +40,7 @@ class CircleActivity : AppCompatActivity() {
 
 
 //            THEN IF YES
-        startActivity(Intent(this, CircleStudentDetailsActivity::class.java))
+        startActivity(Intent(this, StudentCircleDetailsActivity::class.java))
 //            IF NO
 //        binding.inviteCodeInput.setError("Invalid invite code")
     }
