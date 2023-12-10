@@ -6,6 +6,5 @@ data class UserModel(
     var title : String = "",
     var firstName : String = "",
     var lastName : String = "",
-    var profilePic : String = "",
-    var circle : MutableList<String> = mutableListOf()
+    var profilePic : String = ""
 )

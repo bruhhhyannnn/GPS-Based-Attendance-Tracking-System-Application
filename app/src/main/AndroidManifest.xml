@@ -16,7 +16,13 @@
         android:theme="@style/Theme.Capstone"
         tools:targetApi="31">
         <activity
-            android:name=".StudentCircleDetailsActivity"
+            android:name=".CircleFacultyLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CircleFacultyDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CircleStudentDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".CircleActivity"

@@ -24,12 +24,20 @@ class SignupEmailActivity : AppCompatActivity() {
 
     }
     fun signup() {
+        val title = if (intent != null)
+            intent.extras?.getString("title") ?: "default_email"
+        else
+            "null_value"
+
+        UiUtil.showToast(applicationContext, title)
+
+
         val firstName = if (intent != null)
-            intent.extras?.getString("first_name") ?: "default_email"
+            intent.extras?.getString("first_name") ?: "default_last_name"
         else
             "null_value"
         val lastName = if (intent != null)
-            intent.extras?.getString("last_name") ?: "default_email"
+            intent.extras?.getString("last_name") ?: "default_first_name"
         else
             "null_value"
         val email = binding.emailInput.text.toString()
@@ -40,6 +48,7 @@ class SignupEmailActivity : AppCompatActivity() {
         }
         val intent = Intent(this, SignupPasswordActivity::class.java)
         intent.putExtra("email_input", email)
+        intent.putExtra("title", title)
         intent.putExtra("first_name", firstName)
         intent.putExtra("last_name", lastName)
         startActivity(intent)

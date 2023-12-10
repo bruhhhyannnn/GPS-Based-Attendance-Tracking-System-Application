@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
     android:layout_margin="16dp"
-    tools:context=".StudentCircleDetailsActivity">
+    tools:context=".CircleFacultyLocationActivity">
 
     <!-- HEADER -->
     <LinearLayout
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_margin="40dp"
-            android:text="Enter additional details"
+            android:text="Add your class location"
             android:textStyle="bold"
             android:textSize="18dp"/>
     </LinearLayout>
@@ -29,47 +29,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-
-        android:padding="12dp">
+        android:orientation="vertical">
 
         <EditText
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="Student Number"
+            android:hint="Unknown address"
             android:inputType="text"
             android:padding="12dp"
             android:textColor="@color/light_gray"
             android:textColorHint="@color/light_gray"
             android:textSize="14dp"
-            android:id="@+id/student_number_input"/>
-        <EditText
-            android:layout_width="280dp"
+            android:id="@+id/address_input"/>
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/input_box"
-            android:hint="Course"
-            android:inputType="textPersonName"
-            android:padding="12dp"
-            android:textColor="@color/light_gray"
-            android:textColorHint="@color/light_gray"
-            android:textSize="14dp"
-            android:layout_margin="12dp"
-            android:id="@+id/course_input"/>
-        <EditText
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/input_box"
-            android:hint="Year Level and Section"
-            android:inputType="textPersonName"
-            android:padding="12dp"
-            android:textColor="@color/light_gray"
-            android:textColorHint="@color/light_gray"
-            android:textSize="14dp"
-            android:id="@+id/year_level_n_section_input"/>
+            android:text="Drag the map or enter an address"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_margin="40dp"
+            android:background="@color/bg_gray"
+            android:textSize="12dp"/>
     </LinearLayout>
 
     <!-- FOOTER -->
@@ -78,18 +60,19 @@
         android:layout_height="wrap_content"
         android:gravity="bottom|center"
         android:orientation="vertical"
+        android:layout_marginTop="50dp"
         android:padding="5dp">
 
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Continue"
+            android:text="Save"
             android:textSize="16dp"
             android:textStyle="bold"
             android:padding="10dp"
             android:elevation="4dp"
             android:layout_margin="10dp"
-            android:id="@+id/student_circle_details_continue_button"/>
+            android:id="@+id/circle_faculty_location_save_button"/>
     </LinearLayout>
 </LinearLayout>

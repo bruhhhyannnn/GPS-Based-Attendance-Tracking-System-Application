@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GPS-Based Attendance System</string>
+    <string name="select">Title</string>
+
 </resources>

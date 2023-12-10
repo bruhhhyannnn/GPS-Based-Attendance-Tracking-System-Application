@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.capstone.databinding.ActivityCircleBinding
-import com.example.capstone.databinding.ActivityWelcomeBinding
 
 class CircleActivity : AppCompatActivity() {
 
@@ -43,7 +42,7 @@ class CircleActivity : AppCompatActivity() {
 
 
 //            THEN IF YES
-        startActivity(Intent(this, StudentCircleDetailsActivity::class.java))
+        startActivity(Intent(this, CircleStudentDetailsActivity::class.java))
 //            IF NO
 //        binding.inviteCodeInput.setError("Invalid invite code")
     }

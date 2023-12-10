@@ -14,6 +14,7 @@ import com.google.firebase.firestore.firestore
 class SignupPasswordActivity : AppCompatActivity() {
 
     lateinit var binding : ActivitySignupPasswordBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupPasswordBinding.inflate(layoutInflater)
@@ -60,12 +61,16 @@ class SignupPasswordActivity : AppCompatActivity() {
     }
 
     fun signupWithFirebase(email : String, password : String) {
+        val title = if (intent != null)
+            intent.extras?.getString("title") ?: "default_email"
+        else
+            "null_value"
         val firstName = if (intent != null)
-            intent.extras?.getString("first_name") ?: "default_email"
+            intent.extras?.getString("first_name") ?: "default_last_name"
         else
             "null_value"
         val lastName = if (intent != null)
-            intent.extras?.getString("last_name") ?: "default_email"
+            intent.extras?.getString("last_name") ?: "default_first_name"
         else
             "null_value"
 
@@ -75,11 +80,12 @@ class SignupPasswordActivity : AppCompatActivity() {
         ).addOnSuccessListener {
             it.user?.let { user->
 //                ADD MORE DATA INFO HERE (NATITIRA: TITLE, PROFILE PIC, CIRCLE)
-                val userModel = UserModel(user.uid, email, "", firstName, lastName)
+                val userModel = UserModel(user.uid, email, title, firstName, lastName)
 
                 Firebase.firestore.collection("users")
                     .document(user.uid)
-                    .set(userModel).addOnSuccessListener {
+                    .set(userModel)
+                    .addOnSuccessListener {
                         UiUtil.showToast(applicationContext, "Account created successfully")
                         setInProgress(false)
                         startActivity(Intent(this, WelcomeActivity::class.java))

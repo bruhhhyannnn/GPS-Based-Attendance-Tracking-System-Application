@@ -1,20 +1,18 @@
 package com.example.capstone
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.capstone.databinding.ActivityCircleBinding
-import com.example.capstone.databinding.ActivityStudentCircleDetailsBinding
+import com.example.capstone.databinding.ActivityCircleStudentDetailsBinding
 
-class StudentCircleDetailsActivity : AppCompatActivity() {
+class CircleStudentDetailsActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityStudentCircleDetailsBinding
+    lateinit var binding : ActivityCircleStudentDetailsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityStudentCircleDetailsBinding.inflate(layoutInflater)
+        binding = ActivityCircleStudentDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.studentCircleDetailsContinueButton.setOnClickListener {
+        binding.circleStudentDetailsContinueButton.setOnClickListener {
             validate()
         }
     }

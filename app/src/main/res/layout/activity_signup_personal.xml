@@ -28,21 +28,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-
         android:padding="12dp">
 
-        <EditText
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/input_box"
-            android:hint="Title"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="@color/light_gray"
-            android:textColorHint="@color/light_gray"
-            android:textSize="14dp"
-            android:id="@+id/title_input"/>
+            android:layout_gravity="center">
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/select"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_text"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_box"
+                    android:textSize="14dp"
+                    android:padding="12dp"
+                    android:inputType="none"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
         <EditText
             android:layout_width="280dp"
             android:layout_height="wrap_content"

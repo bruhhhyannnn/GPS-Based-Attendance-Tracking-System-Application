@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="16dp"
+    tools:context=".CircleFacultyDetailsActivity">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_margin="40dp"
+            android:text="Give your Circle a class description"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+    <!-- BODY -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:padding="12dp">
+
+        <EditText
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/input_box"
+            android:hint="Class code ex., IT162"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="@color/light_gray"
+            android:textColorHint="@color/light_gray"
+            android:textSize="14dp"
+            android:id="@+id/code_input"/>
+        <EditText
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/input_box"
+            android:hint="Description ex., System Admin..."
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textColor="@color/light_gray"
+            android:textColorHint="@color/light_gray"
+            android:textSize="14dp"
+            android:layout_margin="12dp"
+            android:id="@+id/description_input"/>
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:text="Note: By creating a circle, you are considered as an admin for the class!"
+            android:textColor="@color/light_gray"
+            android:layout_margin="20dp"
+            android:textSize="12dp"/>
+    </LinearLayout>
+
+    <!-- FOOTER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:text="Tip: You can create more Circles for every class in your school life!"
+            android:textColor="@color/light_gray"
+            android:textSize="12dp"/>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Continue"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:elevation="4dp"
+            android:layout_margin="10dp"
+            android:id="@+id/circle_faculty_details_continue_button"/>
+    </LinearLayout>
+</LinearLayout>
