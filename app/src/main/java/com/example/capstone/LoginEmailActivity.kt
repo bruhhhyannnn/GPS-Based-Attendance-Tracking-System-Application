@@ -25,6 +25,7 @@ class LoginEmailActivity : AppCompatActivity() {
             binding.emailInput.setError("Email not valid")
             return
         }
+//        TODO CHECK IF EMAIL EXIST OR NOT
 
         val intent = Intent(this, LoginPasswordActivity::class.java)
         intent.putExtra("email_input", email)

@@ -36,7 +36,7 @@
             android:name=".SettingsCircleManagementActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".SettingsActivity"
             android:exported="false" />
         <activity
             android:name=".LocationPermissionActivity"
@@ -84,7 +84,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

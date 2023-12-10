@@ -13,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/border"
         android:padding="16dp">
 
         <ImageView
@@ -63,6 +64,7 @@
             android:paddingLeft="38dp"
             android:paddingTop="26dp"
             android:paddingBottom="26dp"
+            android:background="@drawable/border"
             android:textStyle="bold"
             android:textSize="16dp"
             android:text="App Permissions"

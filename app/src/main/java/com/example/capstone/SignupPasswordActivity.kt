@@ -21,10 +21,6 @@ class SignupPasswordActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.passwordContinueButton.setOnClickListener {
-//              remove this later in order to put data
-//            startActivity(Intent(this, MainActivity::class.java))
-
-//            ENABLE THIS IF YOU WANT TO ACTIVATE THE REAL LOGIN DATA
             signup()
         }
     }
