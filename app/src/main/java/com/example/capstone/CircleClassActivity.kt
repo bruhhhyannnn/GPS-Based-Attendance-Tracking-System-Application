@@ -3,14 +3,14 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.capstone.databinding.ActivityCircleBinding
+import com.example.capstone.databinding.ActivityCircleClassBinding
 
-class CircleActivity : AppCompatActivity() {
+class CircleClassActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityCircleBinding
+    lateinit var binding : ActivityCircleClassBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCircleBinding.inflate(layoutInflater)
+        binding = ActivityCircleClassBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.submitButton.setOnClickListener {

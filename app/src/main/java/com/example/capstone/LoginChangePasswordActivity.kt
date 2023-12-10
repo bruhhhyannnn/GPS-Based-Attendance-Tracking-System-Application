@@ -5,18 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
-import com.example.capstone.databinding.ActivityChangePasswordBinding
-import com.example.capstone.databinding.ActivityLoginPasswordBinding
+import com.example.capstone.databinding.ActivityLoginChangePasswordBinding
 import com.example.capstone.util.UiUtil
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 
-class ChangePasswordActivity : AppCompatActivity() {
+class LoginChangePasswordActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityChangePasswordBinding
+    lateinit var binding : ActivityLoginChangePasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityChangePasswordBinding.inflate(layoutInflater)
+        binding = ActivityLoginChangePasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.changePasswordContinueButton.setOnClickListener {

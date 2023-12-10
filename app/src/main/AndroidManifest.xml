@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +17,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone"
         tools:targetApi="31">
+        <activity
+            android:name=".SettingsCircleManagementCircleCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsCircleManagementCircleMembersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsAboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsAppPermissionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsCircleManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
         <activity
             android:name=".LocationPermissionActivity"
             android:exported="false" />
@@ -34,13 +57,13 @@
             android:name=".StudentCircleDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".CircleActivity"
+            android:name=".CircleClassActivity"
             android:exported="false" />
         <activity
             android:name=".CircleWelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".ChangePasswordActivity"
+            android:name=".LoginChangePasswordActivity"
             android:exported="false" />
         <activity
             android:name=".LoginPasswordActivity"
@@ -61,7 +84,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".SettingsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

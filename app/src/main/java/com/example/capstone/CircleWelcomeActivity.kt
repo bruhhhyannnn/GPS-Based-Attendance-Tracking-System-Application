@@ -14,7 +14,7 @@ class CircleWelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.welcomeContinueButton.setOnClickListener {
-            startActivity(Intent(this, CircleActivity::class.java))
+            startActivity(Intent(this, CircleClassActivity::class.java))
         }
     }
 }

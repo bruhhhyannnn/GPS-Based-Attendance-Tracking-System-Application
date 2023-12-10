@@ -20,7 +20,7 @@ class LoginPasswordActivity : AppCompatActivity() {
             login()
         }
         binding.goToForgotPassword.setOnClickListener {
-            startActivity(Intent(this, ChangePasswordActivity::class.java))
+            startActivity(Intent(this, LoginChangePasswordActivity::class.java))
         }
     }
 
