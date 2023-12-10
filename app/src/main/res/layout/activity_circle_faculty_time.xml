@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
     android:layout_margin="16dp"
-    tools:context=".CircleFacultyLocationActivity">
+    tools:context=".CircleFacultyTimeActivity">
 
     <!-- HEADER -->
     <LinearLayout
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_margin="40dp"
-            android:text="Add your class location"
+            android:text="Give your Circle class days and hours!"
             android:textStyle="bold"
             android:textSize="18dp"/>
     </LinearLayout>
@@ -29,28 +29,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+
+        android:padding="12dp">
 
         <EditText
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="(Unknown address)"
-            android:inputType="text"
+            android:hint="Date e.x., "
+            android:inputType="date"
             android:padding="12dp"
             android:textColor="@color/light_gray"
             android:textColorHint="@color/light_gray"
             android:textSize="14dp"
-            android:id="@+id/address_input"/>
-        <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/date_input"/>
+        <EditText
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:text="Drag the map or enter an address"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:layout_margin="40dp"
-            android:background="@color/bg_gray"
+            android:layout_gravity="center"
+            android:background="@drawable/input_box"
+            android:hint="Time ex., 10:00 - 11:00"
+            android:inputType="time"
+            android:padding="12dp"
+            android:textColor="@color/light_gray"
+            android:textColorHint="@color/light_gray"
+            android:textSize="14dp"
+            android:layout_margin="10dp"
+            android:id="@+id/time_input"/>
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:text="Note: By giving the circle information, it will only open at the right day and time of class hours."
+            android:textColor="@color/light_gray"
+            android:layout_margin="20dp"
             android:textSize="12dp"/>
     </LinearLayout>
 
@@ -63,16 +76,22 @@
         android:layout_marginTop="50dp"
         android:padding="5dp">
 
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:text="Tip: You can create more Circles for every class in your school life!"
+            android:textColor="@color/light_gray"
+            android:textSize="12dp"/>
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Save"
+            android:text="Continue"
             android:textSize="16dp"
             android:textStyle="bold"
             android:padding="10dp"
             android:elevation="4dp"
             android:layout_margin="10dp"
-            android:id="@+id/circle_faculty_location_save_button"/>
+            android:id="@+id/circle_faculty_time_continue_button"/>
     </LinearLayout>
 </LinearLayout>

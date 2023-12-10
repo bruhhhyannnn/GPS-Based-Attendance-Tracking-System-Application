@@ -1,5 +1,6 @@
 package com.example.capstone
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.capstone.databinding.ActivityCircleFacultyDetailsBinding
@@ -8,6 +9,7 @@ import com.example.capstone.databinding.ActivityCircleStudentDetailsBinding
 class CircleFacultyDetailsActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityCircleFacultyDetailsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCircleFacultyDetailsBinding.inflate(layoutInflater)
@@ -31,6 +33,6 @@ class CircleFacultyDetailsActivity : AppCompatActivity() {
         }
 
 //          IF TEST CASES OKAY? GO TO ADD LOCATION FRAME
-//        startActivity(Intent(this, ::class.java))
+        startActivity(Intent(this, CircleFacultyLocationActivity::class.java))
     }
 }

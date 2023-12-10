@@ -24,9 +24,7 @@ class CircleActivity : AppCompatActivity() {
         }
 
         binding.createCircleButton.setOnClickListener {
-
-//            CHANGE THIS ACTIVITY FOR FACULTY FRAMES
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, CircleFacultyDetailsActivity::class.java))
         }
     }
 
