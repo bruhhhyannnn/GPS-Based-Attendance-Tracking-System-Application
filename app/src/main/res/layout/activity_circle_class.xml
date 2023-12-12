@@ -34,19 +34,92 @@
         android:gravity="center"
         android:padding="12dp">
 
-        <EditText
-            android:layout_width="280dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/input_box"
-            android:hint="Invite code"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="@color/light_gray"
-            android:textColorHint="@color/light_gray"
-            android:textSize="14dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/invite_code_input"/>
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textCapCharacters"
+                android:maxLength="1"
+                android:textColor="@color/black"
+                tools:ignore="LabelFor"
+                android:gravity="center"
+                android:id="@+id/input_code1"/>
+            <EditText
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textCapCharacters"
+                android:maxLength="1"
+                android:textColor="@color/black"
+                tools:ignore="LabelFor"
+                android:gravity="center"
+                android:id="@+id/input_code2"/>
+            <EditText
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textCapCharacters"
+                android:maxLength="1"
+                android:textColor="@color/black"
+                tools:ignore="LabelFor"
+                android:gravity="center"
+                android:id="@+id/input_code3"/>
+            <EditText
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textCapCharacters"
+                android:maxLength="1"
+                android:textColor="@color/black"
+                tools:ignore="LabelFor"
+                android:gravity="center"
+                android:id="@+id/input_code4"/>
+            <EditText
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textCapCharacters"
+                android:maxLength="1"
+                android:textColor="@color/black"
+                tools:ignore="LabelFor"
+                android:gravity="center"
+                android:id="@+id/input_code5"/>
+            <EditText
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="textCapCharacters"
+                android:maxLength="1"
+                android:textColor="@color/black"
+                tools:ignore="LabelFor"
+                android:gravity="center"
+                android:id="@+id/input_code6"/>
+        </LinearLayout>
+        
+        
         <TextView
             android:layout_width="340dp"
             android:layout_height="wrap_content"

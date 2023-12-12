@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import com.example.capstone.databinding.ActivitySignupPersonalBinding
-import com.example.capstone.util.UiUtil
 
 class SignupPersonalActivity : AppCompatActivity() {
 
@@ -46,7 +45,7 @@ class SignupPersonalActivity : AppCompatActivity() {
         val firstName = binding.firstNameInput.text.toString()
         val lastName = binding.lastNameInput.text.toString()
 
-        if (lastName.isEmpty()) {
+        if (firstName.isEmpty()) {
             binding.firstNameInput.setError("Enter a valid name")
             return
         }

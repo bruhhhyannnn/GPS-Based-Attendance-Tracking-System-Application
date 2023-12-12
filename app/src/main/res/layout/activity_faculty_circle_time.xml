@@ -93,5 +93,10 @@
             android:elevation="4dp"
             android:layout_margin="10dp"
             android:id="@+id/circle_faculty_time_continue_button"/>
+        <ProgressBar
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/progress_bar"/>
     </LinearLayout>
 </LinearLayout>

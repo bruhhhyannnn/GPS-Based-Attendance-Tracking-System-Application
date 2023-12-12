@@ -9,6 +9,7 @@ import com.example.capstone.model.UserModel
 import com.example.capstone.util.UiUtil
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 
 class SignupPasswordActivity : AppCompatActivity() {
@@ -75,10 +76,10 @@ class SignupPasswordActivity : AppCompatActivity() {
             email, password
         ).addOnSuccessListener {
             it.user?.let { user->
-//                ADD MORE DATA INFO HERE (NATITIRA: TITLE, PROFILE PIC, CIRCLE)
+//                ADD MORE DATA INFO HERE (NATITIRA: PROFILE PIC, CIRCLE)
                 val userModel = UserModel(user.uid, email, title, firstName, lastName)
 
-                Firebase.firestore.collection("users")
+                Firebase.firestore.collection("user")
                     .document(user.uid)
                     .set(userModel)
                     .addOnSuccessListener {

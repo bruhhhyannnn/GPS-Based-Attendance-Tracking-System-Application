@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.View
 import com.example.capstone.databinding.ActivityLoginPasswordBinding
 import com.example.capstone.util.UiUtil
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.firestore
 
 class LoginPasswordActivity : AppCompatActivity() {
 

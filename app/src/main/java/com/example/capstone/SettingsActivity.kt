@@ -3,6 +3,7 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.example.capstone.databinding.ActivitySettingsBinding
 
 class SettingsActivity : AppCompatActivity() {

@@ -29,12 +29,13 @@ class CircleClassActivity : AppCompatActivity() {
     }
 
     fun validate() {
-        val inviteCode = binding.inviteCodeInput.text.toString()
-
-        if (inviteCode.isEmpty()) {
-            binding.inviteCodeInput.setError("Invalid invite code")
-            return
-        }
+//        TODO VALIDATE INVITE CODE AND GENERATE A FUCKING INVITE CODE
+//        val inviteCode = binding.inviteCodeInput.text.toString()
+//
+//        if (inviteCode.isEmpty()) {
+//            binding.inviteCodeInput.setError("Invalid invite code")
+//            return
+//        }
 
 //        AUTHENTICATE CODE HERE:
 

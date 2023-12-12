@@ -18,13 +18,12 @@
         android:gravity="center">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Hi!  Now you can join or create your own Circle"
             android:textStyle="bold"
-            android:textSize="18dp"/>
-
+            android:textSize="18dp"
+            android:id="@+id/name"/>
     </LinearLayout>
 
     <!-- BODY -->

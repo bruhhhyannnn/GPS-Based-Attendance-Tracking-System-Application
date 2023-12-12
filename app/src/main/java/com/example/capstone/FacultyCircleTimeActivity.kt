@@ -3,6 +3,7 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.capstone.databinding.ActivityFacultyCircleTimeBinding
 
 class FacultyCircleTimeActivity : AppCompatActivity() {
@@ -17,6 +18,17 @@ class FacultyCircleTimeActivity : AppCompatActivity() {
             validate()
         }
     }
+
+    fun setInProgress(inProgress : Boolean) {
+        if (inProgress) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.circleFacultyTimeContinueButton.visibility = View.GONE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.circleFacultyTimeContinueButton.visibility = View.VISIBLE
+        }
+    }
+
     fun validate() {
         val date = binding.dateInput.text.toString()
         val time = binding.timeInput.text.toString()
