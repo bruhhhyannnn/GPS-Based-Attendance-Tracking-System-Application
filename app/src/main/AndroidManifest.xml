@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Capstone"
         tools:targetApi="31">
         <activity
+            android:name=".SettingsAccountChangePasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".SettingsCircleManagementCircleCodeActivity"
             android:exported="false" />
         <activity
@@ -92,6 +95,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/API_KEY"
+            />
     </application>
 
 </manifest>

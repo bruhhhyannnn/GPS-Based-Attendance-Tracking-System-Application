@@ -22,6 +22,7 @@
             android:layout_margin="40dp"
             android:text="Give your Circle class days and hours!"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:textSize="18dp"/>
     </LinearLayout>
 
@@ -29,43 +30,147 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-
-        android:padding="12dp">
+        android:orientation="vertical">
 
         <EditText
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="Date e.x., "
-            android:inputType="date"
+            android:hint="Class Days e.g., M/W/F or T/Th"
+            android:inputType="text"
+            android:textColorHighlight="@color/black"
             android:padding="12dp"
             android:textColor="@color/light_gray"
             android:textColorHint="@color/light_gray"
             android:textSize="14dp"
             android:id="@+id/date_input"/>
-        <EditText
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/input_box"
-            android:hint="Time ex., 10:00 - 11:00"
-            android:inputType="time"
-            android:padding="12dp"
-            android:textColor="@color/light_gray"
-            android:textColorHint="@color/light_gray"
-            android:textSize="14dp"
-            android:layout_margin="10dp"
-            android:id="@+id/time_input"/>
         <TextView
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:text="Note: By giving the circle information, it will only open at the right day and time of class hours."
+            android:text="Note: Seperate class days with '/' to seperate them each day"
+            android:textColor="@color/light_gray"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
+            android:textSize="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Class Time Start"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+
+                    <NumberPicker
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:id="@+id/start_hour"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="30dp"/>
+                    <NumberPicker
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/start_minute"/>
+                    <NumberPicker
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:id="@+id/start_period"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Class Time End"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+
+                    <NumberPicker
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:id="@+id/end_hour"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="30dp"/>
+                    <NumberPicker
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/end_minute"/>
+                    <NumberPicker
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:id="@+id/end_period"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:text="Note: By giving the circle information, it will only open at the day and time of classes."
             android:textColor="@color/light_gray"
             android:layout_margin="20dp"
             android:textSize="12dp"/>
+
     </LinearLayout>
+
 
     <!-- FOOTER -->
     <LinearLayout
@@ -76,12 +181,6 @@
         android:layout_marginTop="50dp"
         android:padding="5dp">
 
-        <TextView
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:text="Tip: You can create more Circles for every class in your school life!"
-            android:textColor="@color/light_gray"
-            android:textSize="12dp"/>
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"

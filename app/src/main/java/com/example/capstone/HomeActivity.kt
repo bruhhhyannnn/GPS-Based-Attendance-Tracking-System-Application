@@ -17,10 +17,10 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 //        FOR CHECKING IF USER ALREADY LOGGED IN
-//        FirebaseAuth.getInstance().currentUser?.let {
-//            startActivity(Intent(this, MainActivity::class.java))
-//            finish()
-//        }
+        FirebaseAuth.getInstance().currentUser?.let {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
 
         binding.getStartedButton.setOnClickListener {
             startActivity(Intent(this, SignupPersonalActivity::class.java))

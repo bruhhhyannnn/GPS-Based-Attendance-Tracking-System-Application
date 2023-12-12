@@ -1,9 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
     tools:context=".SettingsAppPermissionActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/left_arrow"
+            android:id="@+id/left_arrow_button"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:text="Settings"/>
+    </LinearLayout>
+
+    <!-- BODY -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="730dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_gray"
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp"
+            android:textColor="@color/light_gray"
+            android:textStyle="bold"
+            android:text="Your location sharing"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:paddingLeft="38dp"
+                android:paddingRight="38dp"
+                android:paddingTop="28dp"
+                android:paddingBottom="28dp"
+                android:background="@drawable/border"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:text="My Role"
+                android:id="@+id/name1"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enable"
+                android:id="@+id/enable_location_button"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_gray"
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp"
+            android:textColor="@color/light_gray"
+            android:textStyle="bold"
+            android:text="Notifications"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:paddingLeft="38dp"
+                android:paddingRight="38dp"
+                android:paddingTop="28dp"
+                android:paddingBottom="28dp"
+                android:background="@drawable/border"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:text="My Role"
+                android:id="@+id/name2"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enable"
+                android:id="@+id/enable_notification_button"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!-- FOOTER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/bg_gray">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Copyright 2023 GPS-Based Attendance System"
+            android:textColor="@color/light_gray"
+            android:textSize="12dp"/>
+    </LinearLayout>
+
+</LinearLayout>

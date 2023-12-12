@@ -38,7 +38,6 @@
             android:layout_height="140dp"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:text="IAE-WBI"
             android:padding="12dp"
             android:gravity="center"
             android:textStyle="bold"
