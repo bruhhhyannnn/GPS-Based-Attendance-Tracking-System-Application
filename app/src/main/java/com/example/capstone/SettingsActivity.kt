@@ -70,8 +70,8 @@ class SettingsActivity : AppCompatActivity() {
         builder.setPositiveButton("Yes") { _, _ ->
             logout()
         }
-        builder.setNegativeButton("Cancel") { _, _ ->
-
+        builder.setNegativeButton("Cancel") { dialogInterface, _ ->
+            dialogInterface.dismiss()
         }
         return builder.create()
     }

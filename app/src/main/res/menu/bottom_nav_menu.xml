@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="Home"
-        android:icon="@drawable/location"
+        android:icon="@drawable/home"
         android:id="@+id/bottom_menu_home"/>
-    <item android:title="IDK"
+    <item android:title="QR Code"
         android:id="@+id/bottom_menu_idk"/>
 <!--        ICON FOR THE MIDDLE -->
 
