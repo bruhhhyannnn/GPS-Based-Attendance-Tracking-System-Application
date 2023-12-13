@@ -30,9 +30,9 @@ class FacultyCircleDetailsActivity : AppCompatActivity() {
             binding.descriptionInput.setError("Enter a proper description")
             return
         }
-
-//          IF TEST CASES OKAY? GO TO ADD LOCATION FRAME
-        startActivity(Intent(this, FacultyCircleLocationActivity::class.java))
-        finish()
+        val intent = Intent(this, FacultyCircleLocationActivity::class.java)
+        intent.putExtra("code", code)
+        intent.putExtra("description", description)
+        startActivity(intent)
     }
 }

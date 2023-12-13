@@ -5,13 +5,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.capstone.databinding.ActivityFacultyCircleTimeBinding
+import com.example.capstone.model.StudentModel
 import com.example.capstone.util.UiUtil
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.firestore
 
 class FacultyCircleTimeActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityFacultyCircleTimeBinding
-    lateinit var start_time : String
-    lateinit var end_time : String
+    var start_hour = "1"
+    var start_minute = "00"
+    var start_period = "AM"
+    var end_hour = "1"
+    var end_minute = "00"
+    var end_period = "AM"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,40 +29,22 @@ class FacultyCircleTimeActivity : AppCompatActivity() {
         setTime()
 
         binding.circleFacultyTimeContinueButton.setOnClickListener {
-            validate()
+            val start_time = "$start_hour:$start_minute $start_period"
+            val end_time = "$end_hour:$end_minute $end_period"
+            val latitude = intent.extras?.getString("latitude").toString()
+            val longitude = intent.extras?.getString("longitude").toString()
+            val code = intent.extras?.getString("code").toString()
+            val description = intent.extras?.getString("description").toString()
+
+            val intent = Intent(this, FacultyCircleCodeActivity::class.java)
+            intent.putExtra("latitude", latitude)
+            intent.putExtra("longitude", longitude)
+            intent.putExtra("code", code)
+            intent.putExtra("description", description)
+            intent.putExtra("start_time", start_time)
+            intent.putExtra("end_time", end_time)
+            startActivity(intent)
         }
-    }
-
-    fun setInProgress(inProgress : Boolean) {
-        if (inProgress) {
-            binding.progressBar.visibility = View.VISIBLE
-            binding.circleFacultyTimeContinueButton.visibility = View.GONE
-        } else {
-            binding.progressBar.visibility = View.GONE
-            binding.circleFacultyTimeContinueButton.visibility = View.VISIBLE
-        }
-    }
-
-    fun validate() {
-        val date = binding.dateInput.text.toString()
-
-        if (date.isEmpty()) {
-            binding.dateInput.setError("Enter a proper date")
-            return
-        }
-
-
-//        PUT TO DATABASE
-        circleWithFirebase()
-    }
-
-    fun circleWithFirebase() {
-        setInProgress(true)
-        setInProgress(false)
-
-//        ADD TO DATABASE THEN:
-        startActivity(Intent(this, FacultyCircleCodeActivity::class.java))
-        finish()
     }
 
     fun setTime() {
@@ -70,66 +60,45 @@ class FacultyCircleTimeActivity : AppCompatActivity() {
             "AM",
             "PM"
         )
-        var start_hour = ""
-        var start_minute = ""
-        var start_period = ""
-        var end_hour = ""
-        var end_minute = ""
-        var end_period = ""
 
         binding.startHour.minValue = 1
         binding.startHour.maxValue = 12
         binding.startHour.setOnValueChangedListener { _, _, newVal ->
-//            start_hour = newVal.toString()
-            start_time = newVal.toString() + ":$start_minute $start_period"
+            start_hour = newVal.toString()
         }
 
         binding.startMinute.minValue = 0
         binding.startMinute.maxValue = 59
         binding.startMinute.displayedValues = minutes
         binding.startMinute.setOnValueChangedListener { _, _, newVal ->
-//            start_minute = minutes[newVal]
-            start_time = "$start_hour:" + minutes[newVal] + " $start_period"
+            start_minute = minutes[newVal]
         }
 
         binding.startPeriod.minValue = 0
         binding.startPeriod.maxValue = 1
         binding.startPeriod.displayedValues = periods
         binding.startPeriod.setOnValueChangedListener { _, _, newVal ->
-//            start_period = periods[newVal]
-            start_time = "$start_hour:$start_minute" + periods[newVal]
+            start_period = periods[newVal]
         }
-
 
         binding.endHour.minValue = 1
         binding.endHour.maxValue = 12
         binding.endHour.setOnValueChangedListener { _, _, newVal ->
-//            end_hour = newVal.toString()
-            end_time = newVal.toString() + "$:$end_minute $end_period"
+            end_hour = newVal.toString()
         }
 
         binding.endMinute.minValue = 0
         binding.endMinute.maxValue = 59
         binding.endMinute.displayedValues = minutes
         binding.endMinute.setOnValueChangedListener { _, _, newVal ->
-//            end_minute =
-            end_time = "$end_hour:" + minutes[newVal] + " $end_period"
+            end_minute = minutes[newVal]
         }
 
         binding.endPeriod.minValue = 0
         binding.endPeriod.maxValue = 1
         binding.endPeriod.displayedValues = periods
         binding.endPeriod.setOnValueChangedListener { _, _, newVal ->
-//            end_period = periods[newVal]
-            end_time = "$end_hour:$end_minute" + periods[newVal]
+            end_period = periods[newVal]
         }
     }
-
-    fun updateStartTime(start_hour : String, start_minute : String ,start_period : String) {
-        start_time = "$start_hour:$start_minute $start_period"
-    }
-    fun updateEndTime(end_hour : String, end_minute : String ,end_period : String) {
-        end_time = "$end_hour:$end_minute $end_period"
-    }
-
 }

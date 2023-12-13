@@ -3,6 +3,7 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.widget.addTextChangedListener
 import com.example.capstone.databinding.ActivitySettingsAccountChangePasswordBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -17,6 +18,10 @@ class SettingsAccountChangePasswordActivity : AppCompatActivity() {
         binding.save.setOnClickListener {
             validate()
         }
+//        binding.save.addTextChangedListener {
+//            binding.save.isEnabled = true
+//
+//        }
         binding.forgotPassword.setOnClickListener {
             startActivity(Intent(this, LoginChangePasswordActivity::class.java))
         }

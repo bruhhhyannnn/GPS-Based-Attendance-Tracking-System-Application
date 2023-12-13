@@ -3,31 +3,48 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.capstone.databinding.ActivityFacultyCircleCodeBinding
+import com.example.capstone.model.CircleModel
+import com.example.capstone.model.StudentModel
+import com.example.capstone.util.UiUtil
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.firestore
 
 class FacultyCircleCodeActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityFacultyCircleCodeBinding
     private val char = "123456789"
     private val generatedCodes = mutableSetOf<String>()
+    private var circleCode = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFacultyCircleCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.codeInput.text = generateCode()
+        circleCode = generateCode()
+        binding.codeInput.text = circleCode
 
         binding.facultyCircleShareCodeButton.setOnClickListener {
 
-        //            INPUT FOR COPYING THE CODE IN IMPLICIT INTENT
+        //            TODO INPUT FOR COPYING THE CODE IN IMPLICIT INTENT
 
 
         }
-
         binding.goToLocationPermission.setOnClickListener {
-//            GO NOW TO MAIN ACTIVITY
-            startActivity(Intent(this, LocationPermissionActivity::class.java))
+            addCircleWithFirebase()
+        }
+    }
+
+    fun setInProgress(inProgress : Boolean) {
+        if (inProgress) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.goToLocationPermission.visibility = View.GONE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.goToLocationPermission.visibility = View.VISIBLE
         }
     }
 
@@ -52,5 +69,31 @@ class FacultyCircleCodeActivity : AppCompatActivity() {
 
         generatedCodes.add(code)
         return code
+    }
+
+    fun addCircleWithFirebase() {
+        val latitude = intent.extras?.getString("latitude").toString()
+        val longitude = intent.extras?.getString("longitude").toString()
+        val code = intent.extras?.getString("code").toString()
+        val description = intent.extras?.getString("description").toString()
+        val start_time = intent.extras?.getString("start_time").toString()
+        val end_time = intent.extras?.getString("end_time").toString()
+
+        setInProgress(true)
+        val userId = FirebaseAuth.getInstance().currentUser!!.uid;
+        val circleModel = CircleModel(userId, circleCode, latitude, longitude, code, description, start_time, "")
+        Firebase.firestore.collection("circle")
+            .document()
+            .set(circleModel)
+            .addOnSuccessListener {
+                UiUtil.showToast(this, "Created Circle!")
+                setInProgress(false)
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+            .addOnFailureListener {
+                UiUtil.showToast(this, "Failed to add data")
+                setInProgress(false)
+            }
     }
 }

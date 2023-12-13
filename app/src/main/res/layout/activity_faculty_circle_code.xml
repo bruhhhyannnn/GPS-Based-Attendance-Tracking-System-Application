@@ -82,5 +82,10 @@ down, or say it."
             android:textColor="@color/light_blue"
             android:textSize="12dp"
             android:id="@+id/go_to_location_permission"/>
+        <ProgressBar
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/progress_bar"/>
     </LinearLayout>
 </LinearLayout>

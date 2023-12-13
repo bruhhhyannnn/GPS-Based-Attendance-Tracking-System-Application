@@ -14,7 +14,7 @@ class SettingsCircleManagementActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.leftArrowButton.setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
+            startActivity(Intent(this, MainSettingsActivity::class.java))
             finish()
         }
 

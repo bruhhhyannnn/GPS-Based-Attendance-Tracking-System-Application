@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
-    android:layout_margin="16dp"
     tools:context=".FacultyCircleLocationActivity">
 
     <!-- HEADER -->
@@ -36,7 +35,39 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="(Unknown address)"
+            android:hint="Latitude (optional)"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray"
+            android:textSize="14dp"
+            android:id="@+id/latitude_input"/>
+        <EditText
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/input_box"
+            android:hint="Longitude (optional)"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray"
+            android:textSize="14dp"
+            android:id="@+id/longitude_input"/>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginBottom="45dp"/>
+
+        <EditText
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/input_box"
+            android:hint="Address"
             android:inputType="text"
             android:padding="12dp"
             android:textColor="@color/light_gray"

@@ -3,9 +3,11 @@ package com.example.capstone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.capstone.databinding.ActivityCircleClassBinding
 import com.example.capstone.util.UiUtil
 import com.google.firebase.Firebase
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.firestore
 
 class CircleClassActivity : AppCompatActivity() {
@@ -18,8 +20,7 @@ class CircleClassActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.submitButton.setOnClickListener {
-//            AUTH FOR VERIFICATION CODE
-            validate()
+            addAdditionalsWithFirestore()
         }
 
         binding.skip.setOnClickListener {
@@ -32,37 +33,48 @@ class CircleClassActivity : AppCompatActivity() {
         }
     }
 
-    fun validate() {
-//        NOT VALIDATING
-        var circle_code = binding.inputCode1.text.toString() + binding.inputCode2.text.toString() +
-                            binding.inputCode3.text.toString() + binding.inputCode4.text.toString() +
-                            binding.inputCode5.text.toString() + binding.inputCode6.text.toString()
-        UiUtil.showToast(applicationContext, circle_code)
+    fun setInProgress(inProgress : Boolean) {
+        if (inProgress) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.submitButton.visibility = View.GONE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.submitButton.visibility = View.VISIBLE
+        }
+    }
+
+    fun addAdditionalsWithFirestore() {
+        setInProgress(true)
+        val circle_code =
+                    binding.inputCode1.text.toString() + binding.inputCode2.text.toString() +
+                    binding.inputCode3.text.toString() + binding.inputCode4.text.toString() +
+                    binding.inputCode5.text.toString() + binding.inputCode6.text.toString()
+
         Firebase.firestore.collection("circle")
             .whereEqualTo("circleCode", circle_code)
             .get()
-            .addOnSuccessListener {
-                startActivity(Intent(this, StudentCircleDetailsActivity::class.java))
-                UiUtil.showToast(applicationContext, "Found Circle")
+            .addOnSuccessListener { querySnapshot ->
+                if (!querySnapshot.isEmpty) {
+                    val document = querySnapshot.documents[0]
+                    val circleCode = document.getString("circleCode")
 
+                    if (!circleCode.isNullOrEmpty()) {
+                        UiUtil.showToast(applicationContext, "Found circle!")
+                        setInProgress(false)
+                        startActivity(Intent(this, StudentCircleDetailsActivity::class.java)
+                            .putExtra("documentId", document.id))
+                    } else {
+                        UiUtil.showToast(applicationContext, "Circle code not found")
+                        setInProgress(false)
+                    }
+                } else {
+                    UiUtil.showToast(applicationContext, "Circle not found")
+                    setInProgress(false)
+                }
             }
             .addOnFailureListener {
                 UiUtil.showToast(applicationContext, "Something went wrong")
+                setInProgress(false)
             }
-//        TODO VALIDATE INVITE CODE AND GENERATE A FUCKING INVITE CODE
-//        val inviteCode = binding.inviteCodeInput.text.toString()
-//
-//        if (inviteCode.isEmpty()) {
-//            binding.inviteCodeInput.setError("Invalid invite code")
-//            return
-//        }
-
-//        AUTHENTICATE CODE HERE:
-
-
-//            THEN IF YES
-//        startActivity(Intent(this, StudentCircleDetailsActivity::class.java))
-//            IF NO
-//        binding.inviteCodeInput.setError("Invalid invite code")
     }
 }

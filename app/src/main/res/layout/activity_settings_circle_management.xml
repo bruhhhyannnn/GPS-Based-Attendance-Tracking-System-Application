@@ -19,7 +19,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/left_arrow"
+            android:src="@drawable/ic_left_arrow"
             android:id="@+id/left_arrow_button"/>
         <TextView
             android:layout_width="match_parent"
@@ -64,20 +64,21 @@
                 android:textStyle="bold"
                 android:textSize="16dp"
                 android:text="My Role"/>
+
             <TextView
+                android:id="@+id/my_role"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:paddingLeft="38dp"
+                android:paddingTop="28dp"
+                android:paddingRight="38dp"
+                android:paddingBottom="28dp"
+                android:text="Student"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/light_gray"
-                android:paddingLeft="38dp"
-                android:paddingRight="38dp"
-                android:paddingTop="28dp"
-                android:paddingBottom="28dp"
-                android:background="@drawable/border"
-                android:textStyle="bold"
                 android:textSize="16dp"
-                android:text="Student"
-                android:id="@+id/my_role"/>
+                android:textStyle="bold" />
         </LinearLayout>
         <TextView
             android:layout_width="match_parent"

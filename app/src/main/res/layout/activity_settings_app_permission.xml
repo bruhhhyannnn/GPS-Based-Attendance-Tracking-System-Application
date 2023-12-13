@@ -19,7 +19,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/left_arrow"
+            android:src="@drawable/ic_left_arrow"
             android:id="@+id/left_arrow_button"/>
         <TextView
             android:layout_width="match_parent"

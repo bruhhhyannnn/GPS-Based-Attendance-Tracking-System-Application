@@ -18,6 +18,14 @@ class CircleWelcomeActivity : AppCompatActivity() {
         binding = ActivityCircleWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getName()
+
+        binding.welcomeContinueButton.setOnClickListener {
+            startActivity(Intent(this, CircleClassActivity::class.java))
+        }
+    }
+
+    fun getName() {
         val userId = FirebaseAuth.getInstance().currentUser!!.uid;
         Firebase.firestore.collection("user")
             .document(userId)
@@ -32,9 +40,5 @@ class CircleWelcomeActivity : AppCompatActivity() {
                 UiUtil.showToast(this, "Failed to get name")
                 binding.name.text = "default_name"
             }
-
-        binding.welcomeContinueButton.setOnClickListener {
-            startActivity(Intent(this, CircleClassActivity::class.java))
-        }
     }
 }

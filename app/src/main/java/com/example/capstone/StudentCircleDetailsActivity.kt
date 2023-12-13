@@ -14,10 +14,14 @@ import com.google.firebase.firestore.firestore
 class StudentCircleDetailsActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityStudentCircleDetailsBinding
+    lateinit var classID : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStudentCircleDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        classID = intent.extras?.getString("documentId").toString()
 
         binding.circleStudentDetailsContinueButton.setOnClickListener {
             validate()
@@ -51,27 +55,30 @@ class StudentCircleDetailsActivity : AppCompatActivity() {
             binding.yearLevelNSectionInput.setError("Enter year level and section")
             return
         }
-//          IF ALL TEST CASES SUCCEEDED GO TO:
+
         addWithFirebase(studentNum, course, YRSection)
     }
 
     fun addWithFirebase(studentNum : String, course : String, YRSection : String) {
         setInProgress(true)
-
-//        TODO VALIDATE FIRST THE CLASS CODE BEFORE ADDING DATA TO DATABASE
-
-//        UPDATE OPERATION, add to the database for student, course, yr n section
         val userId = FirebaseAuth.getInstance().currentUser!!.uid;
-        UiUtil.showToast(this, userId)
         val studentModel = StudentModel(userId, studentNum, course, YRSection)
         Firebase.firestore.collection("student")
-            .document(userId)
+            .document()
             .set(studentModel)
             .addOnSuccessListener {
-                UiUtil.showToast(this, "Added additional data")
-                setInProgress(false)
-                startActivity(Intent(this, LocationPermissionActivity::class.java))
-                finish()
+                Firebase.firestore.collection("user")
+                    .document(userId)
+                    .update("circleID", classID)
+                    .addOnSuccessListener {
+                        setInProgress(false)
+                        startActivity(Intent(this, LocationPermissionActivity::class.java))
+                        finish()
+                    }
+                    .addOnFailureListener {
+                        UiUtil.showToast(this, "Failed to add additional data")
+                        setInProgress(false)
+                    }
             }
             .addOnFailureListener {
                 UiUtil.showToast(this, "Failed to add data")

@@ -6,4 +6,5 @@
     <color name="light_gray">#797979</color>
     <color name="input_light_gray">#F3F3F3</color>
     <color name="bg_gray">#EEEEEE</color>
+    <color name="gray">#313131</color>
 </resources>

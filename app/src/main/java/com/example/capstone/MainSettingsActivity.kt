@@ -7,7 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.capstone.databinding.ActivitySettingsBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class SettingsActivity : AppCompatActivity() {
+class MainSettingsActivity : AppCompatActivity() {
 
     lateinit var binding : ActivitySettingsBinding
 

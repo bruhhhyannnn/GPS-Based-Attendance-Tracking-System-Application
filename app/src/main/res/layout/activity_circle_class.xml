@@ -22,6 +22,7 @@
             android:textAlignment="center"
             android:text="Joining a Circle? Enter your invite code"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:textSize="18dp"/>
 
     </LinearLayout>
@@ -46,7 +47,7 @@
                 android:background="@drawable/input_box"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:inputType="textCapCharacters"
+                android:inputType="number"
                 android:maxLength="1"
                 android:textColor="@color/black"
                 tools:ignore="LabelFor"
@@ -59,7 +60,7 @@
                 android:background="@drawable/input_box"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:inputType="textCapCharacters"
+                android:inputType="number"
                 android:maxLength="1"
                 android:textColor="@color/black"
                 tools:ignore="LabelFor"
@@ -72,7 +73,7 @@
                 android:background="@drawable/input_box"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:inputType="textCapCharacters"
+                android:inputType="number"
                 android:maxLength="1"
                 android:textColor="@color/black"
                 tools:ignore="LabelFor"
@@ -85,7 +86,7 @@
                 android:background="@drawable/input_box"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:inputType="textCapCharacters"
+                android:inputType="number"
                 android:maxLength="1"
                 android:textColor="@color/black"
                 tools:ignore="LabelFor"
@@ -98,7 +99,7 @@
                 android:background="@drawable/input_box"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:inputType="textCapCharacters"
+                android:inputType="number"
                 android:maxLength="1"
                 android:textColor="@color/black"
                 tools:ignore="LabelFor"
@@ -111,7 +112,7 @@
                 android:background="@drawable/input_box"
                 android:imeOptions="actionDone"
                 android:importantForAutofill="no"
-                android:inputType="textCapCharacters"
+                android:inputType="number"
                 android:maxLength="1"
                 android:textColor="@color/black"
                 tools:ignore="LabelFor"
@@ -135,6 +136,11 @@
             android:textStyle="bold"
             android:padding="10dp"
             android:id="@+id/submit_button"/>
+        <ProgressBar
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/progress_bar"/>
 
 <!--     DIVIDER   -->
         <TextView

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <!-- BODY -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="730dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_gray"
+                android:paddingLeft="22dp"
+                android:textColor="@color/light_gray"
+                android:textStyle="bold"
+                android:text="Profile"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_profile_green"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:background="@drawable/border"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:text="Josh Hutcherson"
+                    android:id="@+id/name"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_gray"
+                android:paddingLeft="22dp"
+                android:textColor="@color/light_gray"
+                android:textStyle="bold"
+                android:text="Classes"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_profile_green"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:paddingTop="28dp"
+                        android:paddingBottom="28dp"
+                        android:textStyle="bold"
+                        android:text="Number of Days Present:"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/present"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:paddingLeft="38dp"
+                    android:paddingTop="28dp"
+                    android:paddingRight="38dp"
+                    android:paddingBottom="28dp"
+                    android:text="50"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/light_gray"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_profile_red"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:paddingTop="28dp"
+                        android:paddingBottom="28dp"
+                        android:textStyle="bold"
+                        android:text="Number of Days Absent:"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/abesnt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:paddingLeft="38dp"
+                    android:paddingTop="28dp"
+                    android:paddingRight="38dp"
+                    android:paddingBottom="28dp"
+                    android:text="6"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/light_gray"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_profile_yellow"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:paddingTop="28dp"
+                        android:paddingBottom="28dp"
+                        android:textStyle="bold"
+                        android:text="Number of Days Excused:"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/excused"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:paddingLeft="38dp"
+                    android:paddingTop="28dp"
+                    android:paddingRight="38dp"
+                    android:paddingBottom="28dp"
+                    android:text="4"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/light_gray"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_gray"
+                android:paddingLeft="22dp"
+                android:textColor="@color/light_gray"
+                android:textStyle="bold"
+                android:text="Course Attended"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:paddingLeft="38dp"
+                android:paddingTop="28dp"
+                android:paddingBottom="28dp"
+                android:background="@drawable/border"
+                android:textStyle="bold"
+                android:text="1. IT121 - Data Structures amd Algorithms"
+                android:id="@+id/course"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_nav_menu"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:id="@+id/bottom_nav_bar"/>
+
+</RelativeLayout>

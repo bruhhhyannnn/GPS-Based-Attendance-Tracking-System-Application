@@ -19,6 +19,12 @@
         android:theme="@style/Theme.Capstone"
         tools:targetApi="31">
         <activity
+            android:name=".MainProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainCircleActivity"
+            android:exported="false" />
+        <activity
             android:name=".SettingsAccountChangePasswordActivity"
             android:exported="false" />
         <activity
@@ -40,7 +46,7 @@
             android:name=".SettingsCircleManagementActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".MainSettingsActivity"
             android:exported="false" />
         <activity
             android:name=".LocationPermissionActivity"
@@ -99,8 +105,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/API_KEY"
-            />
+            android:value="@string/API_KEY" />
     </application>
 
 </manifest>

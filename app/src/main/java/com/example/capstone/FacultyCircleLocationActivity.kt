@@ -18,15 +18,23 @@ class FacultyCircleLocationActivity : AppCompatActivity() {
         }
     }
     fun validate() {
-        val address = binding.addressInput.text.toString()
+        val latitude = binding.latitudeInput.text.toString()
+        val longitude = binding.longitudeInput.text.toString()
+        val code = intent.extras?.getString("code").toString()
+        val description = intent.extras?.getString("description").toString()
 
-        if (address.isEmpty()) {
-            binding.addressInput.setError("Enter a proper address")
-            return
-        }
+//        val address = binding.addressInput.text.toString()
+//
+//        if (address.isEmpty()) {
+//            binding.addressInput.setError("Enter a proper address")
+//            return
+//        }
 
-//          IF TEST CASES OKAY? GO TO ADD TIME FRAME
-        startActivity(Intent(this, FacultyCircleTimeActivity::class.java))
-        finish()
+        val intent = Intent(this, FacultyCircleTimeActivity::class.java)
+        intent.putExtra("latitude", latitude)
+        intent.putExtra("longitude", longitude)
+        intent.putExtra("code", code)
+        intent.putExtra("description", description)
+        startActivity(intent)
     }
 }
