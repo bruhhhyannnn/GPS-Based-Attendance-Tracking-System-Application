@@ -27,20 +27,36 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(this)
 
+        addCircle()
+
         binding.settingsButton.setOnClickListener {
             startActivity(Intent(this, MainSettingsActivity::class.java))
         }
 
+        binding.notificationsButton.setOnClickListener {
+            startActivity(Intent(this, MainNotificationActivity::class.java))
+        }
+
+//        TODO
+//        binding.settingsButton.setOnClickListener {
+//            startActivity(Intent(this, MainClassActivity::class.java))
+//        }
+
         binding.bottomNavBar.setOnItemSelectedListener {menuItem ->
             when(menuItem.itemId) {
                 R.id.bottom_menu_home -> {
-                    UiUtil.showToast(this, "Home")
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
+                R.id.bottom_menu_circle -> {
+                    UiUtil.showToast(this, "nakulangan ng oras para gawin to xd, no, actually if nasapsapa na istart tuy code naubra kuma etuy")
+                    startActivity(Intent(this, MainActivity::class.java))
+
                 }
                 R.id.bottom_menu_idk -> {
-                    UiUtil.showToast(this, "nakulangan ng oras para gawin xd, no, actually if nasapsapa na istart tuy code naubra kuma etuy")
+                    UiUtil.showToast(this, "nakulangan ng oras para gawin to xd, no, actually if nasapsapa na istart tuy code naubra kuma etuy")
                 }
                 R.id.bottom_menu_profile -> {
-                    UiUtil.showToast(this, "Profile")
+                    startActivity(Intent(this, MainProfileActivity::class.java))
                 }
             }
             false
@@ -50,10 +66,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         val location = LatLng(18.059754, 120.544870)
         val options : MarkerOptions = MarkerOptions().position(location).title("Your Circle")
+
         options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN))
         googleMap.addMarker(options)
-//        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 1f))
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 20.0f))
+
         googleMap.addCircle(CircleOptions()
             .center(location)
             .radius(7.0)
@@ -61,5 +78,10 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             .strokeColor(Color.rgb(0, 122, 255))
             .strokeWidth(5f)
         )
+        googleMap.uiSettings.isMyLocationButtonEnabled = true
+    }
+
+    fun addCircle() {
+
     }
 }

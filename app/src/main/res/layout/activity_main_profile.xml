@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -27,6 +25,7 @@
                 android:textColor="@color/light_gray"
                 android:textStyle="bold"
                 android:text="Profile"/>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -35,7 +34,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/ic_profile_green"
+                    android:src="@drawable/profile"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
                     android:layout_gravity="center"/>
@@ -43,12 +42,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:background="@drawable/border"
                     android:textStyle="bold"
                     android:textSize="16dp"
-                    android:text="Josh Hutcherson"
                     android:id="@+id/name"/>
-
             </LinearLayout>
 
             <TextView
@@ -204,12 +200,4 @@
         </LinearLayout>
     </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav_menu"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:id="@+id/bottom_nav_bar"/>
-
-</RelativeLayout>
+</LinearLayout>

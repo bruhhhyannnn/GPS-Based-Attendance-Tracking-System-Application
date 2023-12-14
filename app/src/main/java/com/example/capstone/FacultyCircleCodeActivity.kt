@@ -81,7 +81,7 @@ class FacultyCircleCodeActivity : AppCompatActivity() {
 
         setInProgress(true)
         val userId = FirebaseAuth.getInstance().currentUser!!.uid;
-        val circleModel = CircleModel(userId, circleCode, latitude, longitude, code, description, start_time, "")
+        val circleModel = CircleModel(userId, circleCode, latitude, longitude, code, description, start_time, end_time)
         Firebase.firestore.collection("circle")
             .document()
             .set(circleModel)

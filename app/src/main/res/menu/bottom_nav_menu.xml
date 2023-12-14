@@ -3,11 +3,12 @@
     <item android:title="Home"
         android:icon="@drawable/home"
         android:id="@+id/bottom_menu_home"/>
+    <item android:title="Circle"
+        android:icon="@drawable/profile"
+        android:id="@+id/bottom_menu_circle"/>
     <item android:title="QR Code"
         android:icon="@drawable/qr_code"
         android:id="@+id/bottom_menu_idk"/>
-<!--        ICON FOR THE MIDDLE -->
-
     <item android:title="Profile"
         android:icon="@drawable/profile"
         android:id="@+id/bottom_menu_profile"/>

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_marginTop="16dp"
     android:layout_marginBottom="16dp"
-    tools:context=".MainNotificationsActivity">
+    tools:context=".MainNotificationActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

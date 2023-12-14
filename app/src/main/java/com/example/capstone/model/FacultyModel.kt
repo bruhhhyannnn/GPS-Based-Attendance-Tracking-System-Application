@@ -5,6 +5,5 @@ data class FacultyModel(
     var classCode : String = "",
     var classDescription : String = "",
     var classAddress : String = "",
-//    CAN BE CHANGED TO TIME AS DATA TYPE
     var classHours : String = ""
 )

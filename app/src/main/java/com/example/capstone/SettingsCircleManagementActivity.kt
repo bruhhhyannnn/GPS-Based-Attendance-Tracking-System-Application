@@ -4,6 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.capstone.databinding.ActivitySettingsCircleManagementBinding
+import com.example.capstone.util.UiUtil
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.firestore
 
 class SettingsCircleManagementActivity : AppCompatActivity() {
 
@@ -19,18 +24,15 @@ class SettingsCircleManagementActivity : AppCompatActivity() {
         }
 
         binding.viewCicleMembers.setOnClickListener {
-//            GOTO VIEW CIRCLE MEMBERS
+//            TODO GOTO VIEW CIRCLE MEMBERS
 //            startActivity(Intent(this, MainActivity::class.java))
 
         }
         binding.inviteCode.setOnClickListener {
-//            GOTO INVITE CODE
-//            startActivity(Intent(this, MainActivity::class.java))
-
+            startActivity(Intent(this, SettingsCircleManagementCircleCodeActivity::class.java))
         }
         binding.leaveCircle.setOnClickListener {
 //            TODO CODE FOR LEAVING CIRCLE
-
         }
     }
 }

@@ -19,10 +19,13 @@
         android:theme="@style/Theme.Capstone"
         tools:targetApi="31">
         <activity
-            android:name=".MainProfileActivity"
+            android:name=".MainNotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainCircleActivity"
+            android:name=".MainClassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainProfileActivity"
             android:exported="false" />
         <activity
             android:name=".SettingsAccountChangePasswordActivity"

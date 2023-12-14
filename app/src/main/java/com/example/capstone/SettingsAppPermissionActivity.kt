@@ -18,25 +18,15 @@ class SettingsAppPermissionActivity : AppCompatActivity() {
         binding = ActivitySettingsAppPermissionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val userId = FirebaseAuth.getInstance().currentUser!!.uid
-        Firebase.firestore.collection("user")
-            .document(userId)
-            .get()
-            .addOnSuccessListener {
-                if (it != null) {
-                    val firstName = it.data?.get("firstName")?.toString()
-                    val lastName = it.data?.get("lastName")?.toString()
-                    binding.name1.text = firstName + " " + lastName
-                }
-            }
-            .addOnFailureListener {
-                UiUtil.showToast(this, "Failed to get name")
-            }
+        binding.leftArrowButton.setOnClickListener {
+            startActivity(Intent(this, MainSettingsActivity::class.java))
+            finish()
+        }
 
-        binding.enableLocationButton.setOnClickListener {
+        binding.locationSwitch.setOnClickListener {
 //            TODO
         }
-        binding.enableNotificationButton.setOnClickListener {
+        binding.notificationSwitch.setOnClickListener {
 //            TODO
         }
     }
