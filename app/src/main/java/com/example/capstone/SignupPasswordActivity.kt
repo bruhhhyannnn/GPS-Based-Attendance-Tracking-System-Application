@@ -9,7 +9,6 @@ import com.example.capstone.model.UserModel
 import com.example.capstone.util.UiUtil
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 
 class SignupPasswordActivity : AppCompatActivity() {

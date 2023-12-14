@@ -35,26 +35,27 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="Latitude (optional)"
+            android:hint="Latitude"
             android:inputType="text"
             android:padding="12dp"
             android:textColor="@color/black"
             android:textColorHint="@color/light_gray"
             android:textSize="14dp"
             android:id="@+id/latitude_input"/>
+
         <EditText
+            android:id="@+id/longitude_input"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/input_box"
-            android:hint="Longitude (optional)"
+            android:hint="Longitude"
             android:inputType="text"
             android:padding="12dp"
             android:textColor="@color/black"
             android:textColorHint="@color/light_gray"
-            android:textSize="14dp"
-            android:id="@+id/longitude_input"/>
+            android:textSize="14dp" />
 
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
@@ -67,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/input_box"
-            android:hint="Address"
+            android:hint="Address (optional)"
             android:inputType="text"
             android:padding="12dp"
             android:textColor="@color/light_gray"

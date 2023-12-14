@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.capstone.databinding.ActivityFacultyCircleCodeBinding
 import com.example.capstone.model.CircleModel
-import com.example.capstone.model.StudentModel
+import com.example.capstone.model.UserModel
 import com.example.capstone.util.UiUtil
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -81,18 +81,44 @@ class FacultyCircleCodeActivity : AppCompatActivity() {
 
         setInProgress(true)
         val userId = FirebaseAuth.getInstance().currentUser!!.uid;
+        val circleID = Firebase.firestore.collection("circle").document()
         val circleModel = CircleModel(userId, circleCode, latitude, longitude, code, description, start_time, end_time)
-        Firebase.firestore.collection("circle")
-            .document()
-            .set(circleModel)
+        circleID.set(circleModel)
             .addOnSuccessListener {
-                UiUtil.showToast(this, "Created Circle!")
-                setInProgress(false)
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
+                val newCircleId = circleID.id // Get the newly generated circle ID
+                val userRef = Firebase.firestore.collection("user").document(userId)
+
+                userRef.get()
+                    .addOnSuccessListener { documentSnapshot ->
+                        val userData = documentSnapshot.toObject(UserModel::class.java)
+                        if (userData != null) {
+                            val existingCircleIds = userData.circleID ?: mutableListOf()
+                            existingCircleIds.add(newCircleId)
+
+                            // Update the 'circleID' field in the 'user' collection with the updated list
+                            userRef.update("circleID", existingCircleIds)
+                                .addOnSuccessListener {
+                                    UiUtil.showToast(this, "Created Circle and updated user data with circle ID!")
+                                    setInProgress(false)
+                                    startActivity(Intent(this, MainActivity::class.java))
+                                    finish()
+                                }
+                                .addOnFailureListener { userUpdateException ->
+                                    UiUtil.showToast(this, "Failed to update user data: ${userUpdateException.message}")
+                                    setInProgress(false)
+                                }
+                        } else {
+                            UiUtil.showToast(this, "User data not found!")
+                            setInProgress(false)
+                        }
+                    }
+                    .addOnFailureListener { getUserDataException ->
+                        UiUtil.showToast(this, "Failed to get user data: ${getUserDataException.message}")
+                        setInProgress(false)
+                    }
             }
-            .addOnFailureListener {
-                UiUtil.showToast(this, "Failed to add data")
+            .addOnFailureListener { circleAddException ->
+                UiUtil.showToast(this, "Failed to add circle data: ${circleAddException.message}")
                 setInProgress(false)
             }
     }

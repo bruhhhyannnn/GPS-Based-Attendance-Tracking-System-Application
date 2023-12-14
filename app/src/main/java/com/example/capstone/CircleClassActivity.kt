@@ -7,7 +7,6 @@ import android.view.View
 import com.example.capstone.databinding.ActivityCircleClassBinding
 import com.example.capstone.util.UiUtil
 import com.google.firebase.Firebase
-import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.firestore
 
 class CircleClassActivity : AppCompatActivity() {
@@ -47,7 +46,7 @@ class CircleClassActivity : AppCompatActivity() {
         setInProgress(true)
         val circle_code =
                     binding.inputCode1.text.toString() + binding.inputCode2.text.toString() +
-                    binding.inputCode3.text.toString() + binding.inputCode4.text.toString() +
+                    binding.inputCode3.text.toString() + "-" + binding.inputCode4.text.toString() +
                     binding.inputCode5.text.toString() + binding.inputCode6.text.toString()
 
         Firebase.firestore.collection("circle")

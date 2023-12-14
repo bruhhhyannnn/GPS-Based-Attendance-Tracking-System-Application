@@ -32,30 +32,67 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-<!--        <EditText-->
-<!--            android:layout_width="280dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:background="@drawable/input_box"-->
-<!--            android:hint="Class Days e.g., M/W/F or T/Th"-->
-<!--            android:inputType="text"-->
-<!--            android:textColorHighlight="@color/black"-->
-<!--            android:padding="12dp"-->
-<!--            android:textColor="@color/light_gray"-->
-<!--            android:textColorHint="@color/light_gray"-->
-<!--            android:textSize="14dp"-->
-<!--            android:id="@+id/date_input"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="340dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Note: Seperate class days with '/' to seperate them each day"-->
-<!--            android:textColor="@color/light_gray"-->
-<!--            android:gravity="center"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:layout_marginRight="20dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:layout_marginBottom="50dp"-->
-<!--            android:textSize="12dp"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Class Days"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:gravity="">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/monday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Monday" />
+                <CheckBox
+                    android:id="@+id/tuesday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tuesday" />
+                <CheckBox
+                    android:id="@+id/wednesday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wednesday" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/thursday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thursday" />
+                <CheckBox
+                    android:id="@+id/friday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Friday" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="25dp"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,12 +148,14 @@
             </LinearLayout>
 
 
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="10dp"
                 android:gravity="center">
+
 
                 <LinearLayout
                     android:layout_width="wrap_content"

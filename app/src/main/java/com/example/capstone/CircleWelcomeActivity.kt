@@ -7,7 +7,6 @@ import com.example.capstone.databinding.ActivityCircleWelcomeBinding
 import com.example.capstone.util.UiUtil
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthEmailException
 import com.google.firebase.firestore.firestore
 
 class CircleWelcomeActivity : AppCompatActivity() {
