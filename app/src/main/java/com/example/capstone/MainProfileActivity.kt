@@ -12,6 +12,7 @@ import android.content.pm.PackageManager
 import android.os.Environment
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import org.apache.poi.hssf.usermodel.HSSFCell
 import org.apache.poi.hssf.usermodel.HSSFRow
@@ -23,17 +24,21 @@ import java.io.FileOutputStream
 
 class MainProfileActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityMainProfileBinding
-    private var filePath = File(Environment.getExternalStorageDirectory(), "Downloads/MyData.xls")
+    lateinit var binding: ActivityMainProfileBinding
+    private val REQUEST_PERMISSION_CODE = 101
+    private lateinit var filePath: File
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.excel.setOnClickListener {
-            buttonCreateExcel()
+        if (checkPermissions()) {
+            setupFilePath()
+        } else {
+            requestPermissions()
         }
+
 
         ActivityCompat.requestPermissions(
             this,
@@ -43,12 +48,56 @@ class MainProfileActivity : AppCompatActivity() {
             ),
             PackageManager.PERMISSION_GRANTED
         )
-        filePath = File(Environment.getExternalStorageDirectory(), "Attendance_DATE_.xls")
+        filePath = File(Environment.getExternalStorageDirectory(), "Demo.xls")
 
+        binding.excel.setOnClickListener {
+            buttonCreateExcel()
+        }
 
         addProfile()
         addClass()
         addSubject()
+    }
+
+    private fun checkPermissions(): Boolean {
+        return (ActivityCompat.checkSelfPermission(
+            this,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED)
+    }
+
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ),
+            REQUEST_PERMISSION_CODE
+        )
+    }
+
+    private fun setupFilePath() {
+        filePath = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+            "MyData.xls"
+        )
+    }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                setupFilePath()
+            } else {
+                // Handle permission denial
+            }
+        }
     }
 
     fun buttonCreateExcel() {
@@ -72,9 +121,17 @@ class MainProfileActivity : AppCompatActivity() {
                 flush()
                 close()
             }
+
+            showToast("Excel file created successfully")
+
         } catch (e: Exception) {
             e.printStackTrace()
+            showToast("Error creating Excel file")
         }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     fun getPresentValue() {
