@@ -20,6 +20,7 @@ class CircleClassActivity : AppCompatActivity() {
 
         binding.submitButton.setOnClickListener {
             addAdditionalsWithFirestore()
+            finish()
         }
 
         binding.skip.setOnClickListener {
@@ -29,6 +30,7 @@ class CircleClassActivity : AppCompatActivity() {
 
         binding.createCircleButton.setOnClickListener {
             startActivity(Intent(this, FacultyCircleDetailsActivity::class.java))
+            finish()
         }
     }
 

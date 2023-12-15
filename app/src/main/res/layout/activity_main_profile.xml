@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainProfileActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         <!-- BODY -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="730dp"
+            android:layout_height="630dp"
             android:orientation="vertical">
 
             <TextView
@@ -199,6 +200,29 @@
                 android:text="1. IT121 - Data Structures amd Algorithms"
                 android:id="@+id/course"/>
         </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Export to Excel"
+        android:id="@+id/excel"/>
+
+    <!-- FOOTER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="90dp"
+        android:background="@color/bg_gray">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Copyright 2023 GPS-Based Attendance System"
+            android:textColor="@color/light_gray"
+            android:textSize="12dp"/>
     </LinearLayout>
 
 </LinearLayout>

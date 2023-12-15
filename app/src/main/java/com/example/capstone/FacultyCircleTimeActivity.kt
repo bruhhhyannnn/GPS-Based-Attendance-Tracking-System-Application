@@ -44,6 +44,7 @@ class FacultyCircleTimeActivity : AppCompatActivity() {
             intent.putExtra("start_time", start_time)
             intent.putExtra("end_time", end_time)
             startActivity(intent)
+            finish()
         }
     }
 

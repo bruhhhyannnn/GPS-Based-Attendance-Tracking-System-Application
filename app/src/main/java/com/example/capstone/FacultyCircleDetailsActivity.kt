@@ -34,5 +34,7 @@ class FacultyCircleDetailsActivity : AppCompatActivity() {
         intent.putExtra("code", code)
         intent.putExtra("description", description)
         startActivity(intent)
+        finish()
+
     }
 }
