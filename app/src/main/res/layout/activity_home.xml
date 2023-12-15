@@ -42,13 +42,13 @@
     <!-- BODY -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="700dp"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/mmsu_pic"/>
+            android:src="@drawable/mmsu_bg"/>
     </LinearLayout>
 
     <!-- FOOTER -->

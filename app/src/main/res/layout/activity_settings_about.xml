@@ -1,9 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
     tools:context=".SettingsAboutActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_left_arrow"
+            android:id="@+id/left_arrow_button"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:text="Settings"/>
+    </LinearLayout>
+
+    <!-- BODY -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="730dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_gray"
+            android:paddingLeft="22dp"
+            android:textColor="@color/light_gray"
+            android:textStyle="bold"
+            android:text="About"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Privacy and Policy"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/black"
+            android:text="- AttendEase strives to deliver an unobtrusive and efficient attendance management experience while adhering to the accuracy and connection standards inherent in the GPS Attendance Base System. Our commitment to protecting your privacy is vital, and we are steadfast in our determination to ensure the protection of your personal information. This Privacy Policy precisely defines the procedures for acquiring, using, disclosing, transferring, storing, and protecting personal data inside the GPS Attendance Base System."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/black"
+            android:text="- As you peruse this policy, please recognize its direct applicability to AttendEase, the provider of the GPS Attendance Base System. The policy encompasses websites, mobile applications, and associated services offered by AttendEase, extending to physical devices integral to our system, such as attendance-tracking hardware, and any affiliated products and services."/>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Terms and Conditions "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/black"
+            android:text="- As we introduce the GPS Attendance Base System via AttendEase, we also present the fundamental Terms and Conditions that govern your relationship with our revolutionary service. AttendEase is committed to provide a seamless and stress-free attendance management experience within the GPS Attendance Base System."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/black"
+            android:text="Please keep in mind that these Terms of Conditions are specific to the websites, mobile applications, Help Center, and associated services ('Services') provided by AttendEase, the provider of the GPS Attendance Base System. AttendEase, referred to as 'we,' 'our,' or 'us,' provides coverage to the full of services enclosed under the GPS Attendance Base System in this agreement."/>
+    </LinearLayout>
+
+    <!-- FOOTER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/bg_gray">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Copyright 2023 GPS-Based Attendance System"
+            android:textColor="@color/light_gray"
+            android:textSize="12dp"/>
+    </LinearLayout>
+
+</LinearLayout>

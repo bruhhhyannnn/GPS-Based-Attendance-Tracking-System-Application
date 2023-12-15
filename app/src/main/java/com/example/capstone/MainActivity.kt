@@ -150,7 +150,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 //        UiUtil.showToast(applicationContext, lastLocation.latitude.toString())
 //        UiUtil.showToast(applicationContext, lastLocation.longitude.toString())
         validateIfInsideCircle(
-           37.421986, -122.084018,
+            37.421986, -122.084018,
             37.421986, -122.084018, // Replace with your circle's center longitude
             7.0f // Replace with your circle's radius in meters
         )

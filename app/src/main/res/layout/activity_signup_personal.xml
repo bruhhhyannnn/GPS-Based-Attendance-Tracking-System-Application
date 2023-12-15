@@ -8,6 +8,8 @@
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
     android:layout_margin="16dp"
+    android:paddingTop="60dp"
+
     tools:context=".SignupPersonalActivity">
 
     <LinearLayout

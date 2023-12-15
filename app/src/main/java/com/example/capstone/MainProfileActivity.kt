@@ -7,13 +7,24 @@ import com.example.capstone.util.UiUtil
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
-import org.apache.poi.xssf.usermodel.XSSFWorkbook
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Environment
+import android.view.View
+import android.widget.EditText
+import androidx.core.app.ActivityCompat
+import org.apache.poi.hssf.usermodel.HSSFCell
+import org.apache.poi.hssf.usermodel.HSSFRow
+import org.apache.poi.hssf.usermodel.HSSFSheet
+import org.apache.poi.hssf.usermodel.HSSFWorkbook
 import java.io.File
 import java.io.FileOutputStream
+
 
 class MainProfileActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityMainProfileBinding
+    private var filePath = File(Environment.getExternalStorageDirectory(), "Downloads/MyData.xls")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,12 +32,49 @@ class MainProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.excel.setOnClickListener {
-            getPresentValue()
+            buttonCreateExcel()
         }
+
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ),
+            PackageManager.PERMISSION_GRANTED
+        )
+        filePath = File(Environment.getExternalStorageDirectory(), "Attendance_DATE_.xls")
+
 
         addProfile()
         addClass()
         addSubject()
+    }
+
+    fun buttonCreateExcel() {
+        val hssfWorkbook = HSSFWorkbook()
+        val hssfSheet: HSSFSheet = hssfWorkbook.createSheet("Custom Sheet")
+
+        val hssfRow: HSSFRow = hssfSheet.createRow(0)
+        val hssfCell: HSSFCell = hssfRow.createCell(0)
+
+        hssfCell.setCellValue("hello")
+
+        try {
+            if (!filePath.exists()) {
+                filePath.createNewFile()
+            }
+
+            val fileOutputStream = FileOutputStream(filePath)
+            hssfWorkbook.write(fileOutputStream)
+
+            fileOutputStream.apply {
+                flush()
+                close()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     fun getPresentValue() {
@@ -41,7 +89,7 @@ class MainProfileActivity : AppCompatActivity() {
                     val presentValue = document.getLong("present")?.toInt() ?: 0
                     totalPresentValue += presentValue // Accumulate present values
                 }
-                createExcel(totalPresentValue) // Pass the total present value to createExcel
+//                createExcel(totalPresentValue) // Pass the total present value to createExcel
                 binding.present.text = totalPresentValue.toString()
             }
             .addOnFailureListener { exception ->
@@ -49,51 +97,7 @@ class MainProfileActivity : AppCompatActivity() {
             }
     }
 
-    private fun createExcel(totalPresentValue: Int) {
-        val database = FirebaseDatabase.getInstance().getReference("Student")
-        database.get().addOnSuccessListener { dataSnapshot ->
-            // Create a fresh workbook and sheet
-            val workbook = XSSFWorkbook()
-            val sheet = workbook.createSheet("Attendance Data")
 
-            // Create the header row
-            val headerRow = sheet.createRow(0)
-            val headers = arrayOf("Student Number", "Course", "Last Name", "First Name", "Number of Days Present", "Number of Days Absent", "Number of Days Excused")
-            for (i in headers.indices) {
-                val cell = headerRow.createCell(i)
-                cell.setCellValue(headers[i])
-            }
-
-            // Insert Data From Firebase nukwa
-            var rowNum = 1
-            for (studentSnapshot in dataSnapshot.children) {
-                val row = sheet.createRow(rowNum++)
-
-                val studentNum = studentSnapshot.child("studentNum").value.toString()
-                val course = studentSnapshot.child("course").value.toString()
-                val lastName = studentSnapshot.child("lastName").value.toString()
-                val firstName = studentSnapshot.child("firstName").value.toString()
-                val numberOfPresentDays = studentSnapshot.child("numberOfPresentDays").value.toString()
-                val numberOfAbsentDays = studentSnapshot.child("numberOfAbsentDays").value.toString()
-                val numberOfExcusedDays = studentSnapshot.child("numberOfExcusedDays").value.toString()
-
-                val values = arrayOf(studentNum, course, lastName, firstName, numberOfPresentDays, numberOfAbsentDays, numberOfExcusedDays)
-                for (i in values.indices) {
-                    val cell = row.createCell(i)
-                    cell.setCellValue(values[i])
-                }
-            }
-
-            // Write the WorkBook
-            val file = File(getExternalFilesDir(null), "StudentData.xlsx")
-            val outputStream = FileOutputStream(file)
-            workbook.write(outputStream)
-            workbook.close()
-            outputStream.close()
-
-            Toast.makeText(this, "Data exported to ${file.absolutePath}", Toast.LENGTH_LONG).show()
-        }
-    }
 
     fun addProfile() {
         val userId = FirebaseAuth.getInstance().currentUser!!.uid;

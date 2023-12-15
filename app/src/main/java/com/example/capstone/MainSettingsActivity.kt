@@ -32,7 +32,7 @@ class MainSettingsActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingsAccountActivity::class.java))
         }
         binding.about.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, SettingsAboutActivity::class.java))
         }
         binding.logout.setOnClickListener {
             val dialog: AlertDialog = createDialog()
