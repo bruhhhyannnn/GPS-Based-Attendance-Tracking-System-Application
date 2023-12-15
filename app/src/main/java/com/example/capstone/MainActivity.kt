@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     lateinit var mMap: GoogleMap
     lateinit var lastLocation : Location
     lateinit var fusedLocation : FusedLocationProviderClient
+    var present : Int = 1
+
     companion object {
         private const val LOCATION_REQUEST_CODE = 1
     }
@@ -78,22 +80,45 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
 
     fun validate() {
-//        println(DateFormat.getDateInstance(DateFormat.DATE_FIELD))
-//        println(DateFormat.getDateInstance(DateFormat.FULL))
         println(DateFormat.getTimeInstance(DateFormat.SHORT))
 
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
         Firebase.firestore.collection("circle")
-            .whereEqualTo("userId", userId) // Assuming userId field in documents is named "userId"
+            .whereEqualTo("userID", userId)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 for (document in querySnapshot.documents) {
-                    val startTime = document.get("startTime").toString() // Replace "startTime" with your actual field name
-                    val endTime = document.get("endTime").toString() // Replace "endTime" with your actual field name
-                    val latitude = document.get("latitude").toString() // Replace "endTime" with your actual field name
-                    val longitude = document.get("longitude").toString() // Replace "endTime" with your actual field name
+                    val startTime = document.get("startTime").toString() // Replace with your actual field name
+                    val endTime = document.get("endTime").toString() // Replace with your actual field name
+                    val latitudeStr = document.getString("latitude")
+                    val longitudeStr = document.getString("longitude")
 
+                    val latitude = latitudeStr?.toDoubleOrNull()
+                    val longitude = longitudeStr?.toDoubleOrNull()
 
+                    if (latitude != null && longitude != null) {
+                        // Convert latitude and longitude to LatLng
+                        val location = LatLng(latitude.toDouble(), longitude.toDouble())
+
+                        // Create circle options
+                        val circleOptions = CircleOptions()
+                            .center(location)
+                            .radius(7.0) // Set your desired radius in meters
+                            .strokeColor(Color.RED)
+                            .fillColor(Color.argb(70, 150, 50, 50))
+
+                        // Add circle to the Google Map
+                        mMap.addCircle(circleOptions)
+
+                        // Add marker at the center of the circle
+                        val markerOptions = MarkerOptions()
+                            .position(location)
+                            .title("it131 - data structures")
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN))
+
+                        mMap.addMarker(markerOptions)
+
+                    }
                 }
             }
             .addOnFailureListener { exception ->
@@ -104,11 +129,10 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     override fun onMapReady(googleMap: GoogleMap) {
 
         mMap = googleMap
-        mMap.uiSettings.isZoomControlsEnabled = true
         mMap.setOnMarkerClickListener(this)
         setupMap()
 
-        val location = LatLng(18.059754, 120.544870)
+        val location = LatLng(37.422016, -122.083476)
         val options = MarkerOptions().position(location).title("circle_name")
             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN))
 
@@ -122,12 +146,23 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 .strokeColor(Color.rgb(0, 122, 255))
                 .strokeWidth(5f)
         )
+        // Call validateIfInsideCircle with the user's location and circle's center and radius
+//        UiUtil.showToast(applicationContext, lastLocation.latitude.toString())
+//        UiUtil.showToast(applicationContext, lastLocation.longitude.toString())
+        validateIfInsideCircle(
+           37.421986, -122.084018,
+            37.421986, -122.084018, // Replace with your circle's center longitude
+            7.0f // Replace with your circle's radius in meters
+        )
     }
 
-    fun validateIfInsideCircle(latitude : Double, longitude : Double, circleCenterLatitude : Double, circleCenterLongitude : Double) {
-        // Assuming you have the user's current location as a LatLng object named currentUserLocation
-// Assuming you have the circle's center and radius as LatLng and radius variables respectively
-
+    fun validateIfInsideCircle(
+        latitude: Double,
+        longitude: Double,
+        circleCenterLatitude: Double,
+        circleCenterLongitude: Double,
+        circleRadius: Float
+    ) {
         val distance = FloatArray(1)
         Location.distanceBetween(
             latitude, longitude,
@@ -135,18 +170,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             distance
         )
 
-// Check if the distance is less than the circle's radius
-        val radius = 7.0 // Assuming circle radius is 7.0 (in meters)
-        if (distance[0] < radius) {
-            // User is inside the circle
-            // Perform actions or show a message indicating the user is inside the circle
+        if (distance[0] < circleRadius) {
+            addWithFirebase()
             UiUtil.showToast(applicationContext, "Inside Circle!")
         } else {
-            // User is outside the circle
-            // Perform actions or show a message indicating the user is outside the circle
             UiUtil.showToast(applicationContext, "Not Inside Circle!")
         }
-
     }
 
     fun setupMap() {
@@ -161,7 +190,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 lastLocation = location
                 val currentLatLong = LatLng(location.latitude, location.longitude)
                 placeMarkerOnMap(currentLatLong)
-                validateIfInsideCircle(location.latitude, location.longitude, 37.421987, -122.083943)
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 20.0f))
             }
         }
@@ -172,6 +200,30 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         markerOptions.title("bryan mangapit")
         mMap.addMarker(markerOptions)
     }
+
+    fun addWithFirebase() {
+        val userId = FirebaseAuth.getInstance().currentUser!!.uid
+        Firebase.firestore.collection("student")
+            .whereEqualTo("userID", userId)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                for (document in querySnapshot.documents) {
+                    val documentReference = Firebase.firestore.collection("student").document(document.id)
+                    documentReference
+                        .update("present", present) // Replace "newField" with the field name
+                        .addOnSuccessListener {
+                            present = present + 1
+                        }
+                        .addOnFailureListener {
+                            UiUtil.showToast(this, "Failed to add present value")
+                        }
+                }
+            }
+            .addOnFailureListener { exception ->
+                UiUtil.showToast(this, "Failed to get user: ${exception.message}")
+            }
+    }
+
 
     override fun onMarkerClick(p0: Marker)= false
 }

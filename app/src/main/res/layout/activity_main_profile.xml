@@ -91,7 +91,7 @@
                     android:paddingTop="28dp"
                     android:paddingRight="38dp"
                     android:paddingBottom="28dp"
-                    android:text="50"
+                    android:text="0"
                     android:textAlignment="viewEnd"
                     android:textColor="@color/light_gray"
                     android:textStyle="bold" />
@@ -122,16 +122,17 @@
                         android:textStyle="bold"
                         android:text="Number of Days Absent:"/>
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/abesnt"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/border"
                     android:paddingLeft="38dp"
                     android:paddingTop="28dp"
                     android:paddingRight="38dp"
                     android:paddingBottom="28dp"
-                    android:text="6"
+                    android:text="0"
                     android:textAlignment="viewEnd"
                     android:textColor="@color/light_gray"
                     android:textStyle="bold" />
@@ -171,7 +172,7 @@
                     android:paddingTop="28dp"
                     android:paddingRight="38dp"
                     android:paddingBottom="28dp"
-                    android:text="4"
+                    android:text="0"
                     android:textAlignment="viewEnd"
                     android:textColor="@color/light_gray"
                     android:textStyle="bold" />
